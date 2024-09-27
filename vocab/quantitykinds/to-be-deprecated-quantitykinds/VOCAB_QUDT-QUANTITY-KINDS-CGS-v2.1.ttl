@@ -74,7 +74,6 @@ qudt:SOQ_CGS
   qudt:systemDerivedQuantityKind quantitykind:Curvature ;
   qudt:systemDerivedQuantityKind quantitykind:Density ;
   qudt:systemDerivedQuantityKind quantitykind:DynamicViscosity ;
-  qudt:systemDerivedQuantityKind quantitykind:EnergyAndWork ;
   qudt:systemDerivedQuantityKind quantitykind:EnergyDensity ;
   qudt:systemDerivedQuantityKind quantitykind:EnergyPerArea ;
   qudt:systemDerivedQuantityKind quantitykind:Force ;
@@ -224,7 +223,7 @@ vaem:GMD_QUDT-VOCAB-QUANTITYKINDS-CGS
   vaem:hasDomain "quantitykinds" ;
   vaem:intent "" ;
   vaem:isMetadataFor <http://qudt.org/2.0/vocab/quantitykind/cgs> ;
-  vaem:logo "http://www.linkedmodel.org/lib/lm/images/logos/qudt_logo-300x110.png" ;
+  vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png" ;
   vaem:namespace "qudt" ;
   vaem:namespacePrefix "qudt" ;
   vaem:owner "qudt.org" ;

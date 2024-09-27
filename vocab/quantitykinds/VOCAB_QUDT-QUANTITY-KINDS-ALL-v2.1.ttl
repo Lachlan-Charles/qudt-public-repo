@@ -23,7 +23,7 @@
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-QUANTITY-KINDS-ALL ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "QUDT VOCAB Quantity Kinds  Release 2.1.18" ;
+  rdfs:label "QUDT VOCAB Quantity Kinds  Release 2.1.23" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
   owl:imports <http://qudt.org/2.1/vocab/dimensionvector> ;
   owl:versionIRI <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -136,6 +136,7 @@ quantitykind:Acceleration
   qudt:applicableUnit unit:MilliG ;
   qudt:applicableUnit unit:MilliGAL ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Acceleration"^^xsd:anyURI ;
+  qudt:exactMatch quantitykind:LinearAcceleration ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T-2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Acceleration"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -179,6 +180,7 @@ quantitykind:AcceptorDensity
 .
 quantitykind:AcceptorIonizationEnergy
   a qudt:QuantityKind ;
+  dcterms:description "\"Acceptor Ionization Energy\" is the ionization energy of an acceptor."^^rdf:HTML ;
   qudt:applicableUnit unit:AttoJ ;
   qudt:applicableUnit unit:BTU_IT ;
   qudt:applicableUnit unit:BTU_TH ;
@@ -195,6 +197,8 @@ quantitykind:AcceptorIonizationEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -222,7 +226,6 @@ quantitykind:AcceptorIonizationEnergy
   qudt:applicableUnit unit:V-A_Reactive-HR ;
   qudt:applicableUnit unit:W-HR ;
   qudt:applicableUnit unit:W-SEC ;
-  dcterms:description "\"Acceptor Ionization Energy\" is the ionization energy of an acceptor."^^rdf:HTML ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Ionization_energy"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31897"^^xsd:anyURI ;
@@ -234,10 +237,20 @@ quantitykind:AcceptorIonizationEnergy
   skos:broader quantitykind:IonizationEnergy ;
   skos:closeMatch quantitykind:DonorIonizationEnergy ;
 .
-quantitykind:AcousticImpedance
-  qudt:applicableUnit unit:PA-SEC-PER-M ;
+quantitykind:Acidity
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:PA-SEC-PER-M3 ;
+  qudt:applicableUnit unit:PH ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:informativeReference "https://en.wikipedia.org/wiki/Acid"^^xsd:anyURI ;
+  qudt:informativeReference "https://en.wikipedia.org/wiki/PH"^^xsd:anyURI ;
+  qudt:plaintextDescription "Chemicals or substances having a pH less than 7 are said to be acidic; lower pH means higher acidity." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Acidity"@en ;
+  skos:broader quantitykind:PH ;
+.
+quantitykind:AcousticImpedance
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:PA-SEC-PER-M ;
   qudt:hasDimensionVector qkdv:A0E0L-2I0M1H0T-1D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Acoustic_impedance"^^xsd:anyURI ;
   qudt:latexDefinition "\\(Z_a= \\frac{p}{q} = \\frac{p}{vS}\\), where \\(p\\) is the sound pressure, \\(q\\) is the sound volume velocity, \\(v\\) is sound particle velocity, and \\(S\\) is the surface area through which an acoustic wave of frequence \\(f\\) propagates."^^qudt:LatexString ;
@@ -245,6 +258,7 @@ quantitykind:AcousticImpedance
   qudt:symbol "Z" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Acoustic Impediance"@en ;
+  skos:broader quantitykind:MassPerAreaTime ;
 .
 quantitykind:Action
   a qudt:QuantityKind ;
@@ -286,6 +300,8 @@ quantitykind:ActiveEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -328,9 +344,15 @@ quantitykind:ActiveEnergy
 quantitykind:ActivePower
   a qudt:QuantityKind ;
   dcterms:description "\\(Active Power\\) is, under periodic conditions, the mean value, taken over one period \\(T\\), of the instantaneous power \\(p\\). In complex notation, \\(P = \\mathbf{Re} \\; \\underline{S}\\), where \\(\\underline{S}\\) is \\(\\textit{complex power}\\)\"."^^qudt:LatexString ;
-  qudt:applicableUnit unit:KiloV-A ;
-  qudt:applicableUnit unit:MegaV-A ;
-  qudt:applicableUnit unit:V-A ;
+  qudt:applicableUnit unit:GigaW ;
+  qudt:applicableUnit unit:KiloW ;
+  qudt:applicableUnit unit:MegaW ;
+  qudt:applicableUnit unit:MicroW ;
+  qudt:applicableUnit unit:MilliW ;
+  qudt:applicableUnit unit:NanoW ;
+  qudt:applicableUnit unit:PicoW ;
+  qudt:applicableUnit unit:TeraW ;
+  qudt:applicableUnit unit:W ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-3D0 ;
   qudt:informativeReference "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=131-11-42"^^xsd:anyURI ;
   qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
@@ -415,8 +437,11 @@ quantitykind:Adaptation
 quantitykind:Admittance
   a qudt:QuantityKind ;
   dcterms:description "\"Admittance\" is a measure of how easily a circuit or device will allow a current to flow. It is defined as the inverse of the impedance (\\(Z\\)). "^^qudt:LatexString ;
+  qudt:applicableUnit unit:KiloS ;
+  qudt:applicableUnit unit:MicroS ;
+  qudt:applicableUnit unit:MilliS ;
   qudt:applicableUnit unit:S ;
-  qudt:hasDimensionVector qkdv:A0E2L-3I0M-1H0T3D0 ;
+  qudt:hasDimensionVector qkdv:A0E2L-2I0M-1H0T3D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Admittance"^^xsd:anyURI ;
   qudt:informativeReference "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=131-12-51"^^xsd:anyURI ;
   qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
@@ -445,6 +470,8 @@ quantitykind:AlphaDisintegrationEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -635,6 +662,7 @@ quantitykind:AmountOfSubstancePerUnitMass
   qudt:applicableUnit unit:IU-PER-MilliGM ;
   qudt:applicableUnit unit:KiloMOL-PER-KiloGM ;
   qudt:applicableUnit unit:MOL-PER-KiloGM ;
+  qudt:applicableUnit unit:MicroMOL-PER-GM ;
   qudt:applicableUnit unit:MicroMOL-PER-KiloGM ;
   qudt:applicableUnit unit:MilliMOL-PER-GM ;
   qudt:applicableUnit unit:MilliMOL-PER-KiloGM ;
@@ -645,7 +673,6 @@ quantitykind:AmountOfSubstancePerUnitMass
   vaem:todo "fix the numerator and denominator dimensions" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Amount of Substance per Unit Mass"@en ;
-  skos:broader quantitykind:Concentration ;
 .
 quantitykind:AmountOfSubstancePerUnitMassPressure
   a qudt:QuantityKind ;
@@ -665,6 +692,7 @@ quantitykind:AmountOfSubstancePerUnitVolume
   qudt:applicableUnit unit:MicroMOL-PER-L ;
   qudt:applicableUnit unit:MilliMOL-PER-L ;
   qudt:applicableUnit unit:MilliMOL-PER-M3 ;
+  qudt:applicableUnit unit:NanoMOL-PER-L ;
   qudt:applicableUnit unit:PicoMOL-PER-L ;
   qudt:applicableUnit unit:PicoMOL-PER-M3 ;
   qudt:baseUnitDimensions "\\(M/L^3\\)"^^qudt:LatexString ;
@@ -693,6 +721,7 @@ quantitykind:Angle
   qudt:applicableUnit unit:RAD ;
   qudt:applicableUnit unit:REV ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Angle"^^xsd:anyURI ;
+  qudt:exactMatch quantitykind:PlaneAngle ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Angle"@en ;
@@ -713,6 +742,7 @@ quantitykind:AngleOfAttack
   qudt:applicableUnit unit:MilliRAD ;
   qudt:applicableUnit unit:RAD ;
   qudt:applicableUnit unit:REV ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:latexSymbol "\\(\\alpha\\)"^^qudt:LatexString ;
   qudt:plainTextDescription "Angle of attack  is the angle between the oncoming air or relative wind and a reference line on the airplane or wing." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -733,6 +763,7 @@ quantitykind:AngleOfOpticalRotation
   qudt:applicableUnit unit:MilliRAD ;
   qudt:applicableUnit unit:RAD ;
   qudt:applicableUnit unit:REV ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Optical_rotation"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31894"^^xsd:anyURI ;
   qudt:latexSymbol "\\(\\alpha\\)"^^qudt:LatexString ;
@@ -785,6 +816,7 @@ quantitykind:AngularDistance
   qudt:applicableUnit unit:MilliRAD ;
   qudt:applicableUnit unit:RAD ;
   qudt:applicableUnit unit:REV ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:latexSymbol "\\(\\theta\\)"^^qudt:LatexString ;
   qudt:plainTextDescription "Angular distance travelled by orbiting vehicle measured from the azimuth of closest approach." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -821,6 +853,7 @@ quantitykind:AngularImpulse
   qudt:applicableUnit unit:KiloGM-M2-PER-SEC ;
   qudt:applicableUnit unit:N-M-SEC ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/AngularMomentum"^^xsd:anyURI ;
+  qudt:exactMatch quantitykind:AngularMomentum ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-1D0 ;
   qudt:informativeReference "http://emweb.unl.edu/NEGAHBAN/EM373/note13/note.htm"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31889"^^xsd:anyURI ;
@@ -840,6 +873,7 @@ quantitykind:AngularMomentum
   qudt:baseUnitDimensions "\\(L^2 \\cdot M/T\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(kg \\cdot m^2/s\\)"^^qudt:LatexString ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Angular_momentum"^^xsd:anyURI ;
+  qudt:exactMatch quantitykind:AngularImpulse ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-1D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Angular_momentum"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31889"^^xsd:anyURI ;
@@ -955,6 +989,7 @@ quantitykind:ApogeeRadius
   qudt:applicableUnit unit:PlanckLength ;
   qudt:applicableUnit unit:ROD ;
   qudt:applicableUnit unit:YD ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
   qudt:plainTextDescription "Apogee radius of an elliptical orbit" ;
   qudt:symbol "r_2" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -1121,7 +1156,7 @@ quantitykind:Asset
 quantitykind:AtmosphericHydroxylationRate
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:CentiM3-PER-MOL-SEC ;
-  qudt:hasDimensionVector <http://qudt.org/vocab/dimension/A-1E0L3I0M0H0T-1D0> ;
+  qudt:hasDimensionVector qkdv:A-1E0L3I0M0H0T-1D0 ;
   qudt:plainTextDescription "A second order reaction rate constant that is a specific second order reaction rate constant that governs the kinetics of an atmospheric, gas-phase reaction between hydroxyl radicals and an organic chemical." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Atmospheric Hydroxylation Rate"@en ;
@@ -1358,7 +1393,9 @@ quantitykind:AttenuationCoefficient
 .
 quantitykind:AuditoryThresholds
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:B ;
   qudt:applicableUnit unit:DeciB ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=43012"^^xsd:anyURI ;
   qudt:latexSymbol "\\(\\overline{T_a}\\)"^^qudt:LatexString ;
   qudt:plainTextDescription "\"Auditory Thresholds\" is the thresholds of sensitivity to auditory signals and other input to the ear or the sense of hearing." ;
@@ -1402,6 +1439,8 @@ quantitykind:AverageEnergyLossPerElementaryChargeProduced
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -1539,6 +1578,17 @@ quantitykind:AverageVacuumThrust
   skos:altLabel "AVT" ;
   skos:broader quantitykind:VacuumThrust ;
 .
+quantitykind:Basicity
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:PH ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:informativeReference "https://en.wikipedia.org/wiki/Base_(chemistry)"^^xsd:anyURI ;
+  qudt:informativeReference "https://en.wikipedia.org/wiki/PH"^^xsd:anyURI ;
+  qudt:plaintextDescription "Chemicals or substances having a pH higher than 7 are said to be basic; higher pH means higher basicity." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Acidity"@en ;
+  skos:broader quantitykind:PH ;
+.
 quantitykind:BendingMomentOfForce
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:CentiN-M ;
@@ -1583,6 +1633,8 @@ quantitykind:BetaDisintegrationEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -1633,6 +1685,7 @@ quantitykind:BevelGearPitchAngle
   qudt:applicableUnit unit:MilliRAD ;
   qudt:applicableUnit unit:RAD ;
   qudt:applicableUnit unit:REV ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:latexSymbol "\\(\\theta\\)"^^qudt:LatexString ;
   qudt:plainTextDescription "Pitch angle in bevel gears is the angle between an element of a pitch cone and its axis. In external and internal bevel gears, the pitch angles are respectively less than and greater than 90 degrees." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -1693,10 +1746,9 @@ quantitykind:BloodGlucoseLevel_Mass
 .
 quantitykind:BodyMassIndex
   a qudt:QuantityKind ;
-  dcterms:description "\\(\\textit{Body Mass Index}\\), BMI, is an index of weight for height, calculated as: \\(BMI = \\frac{M_{body}}{H}\\), where \\(M_{body}\\) is body mass in kg, and \\(H\\) is height in metre. The BMI has been used as a guideline for defining whether a person is overweight because it minimizes the effect of height, but it does not take into consideration other important factors, such as age and body build. The BMI has also been used as an indicator of obesity on the assumption that the higher the index, the greater the level of body fat."^^qudt:LatexString ;
-  qudt:applicableUnit unit:KiloGM-PER-M ;
-  qudt:applicableUnit unit:KiloGM-PER-MilliM ;
-  qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T0D0 ;
+  dcterms:description "\\(\\textit{Body Mass Index}\\), BMI, is an index of weight for height, calculated as: \\(BMI = \\frac{M_{body}}{H^2}\\), where \\(M_{body}\\) is body mass in kg, and \\(H\\) is height in metres. The BMI has been used as a guideline for defining whether a person is overweight because it minimizes the effect of height, but it does not take into consideration other important factors, such as age and body build. The BMI has also been used as an indicator of obesity on the assumption that the higher the index, the greater the level of body fat."^^qudt:LatexString ;
+  qudt:applicableUnit unit:KiloGM-PER-M2 ;
+  qudt:hasDimensionVector qkdv:A0E0L-2I0M1H0T0D0 ;
   qudt:informativeReference "http://www.oxfordreference.com/view/10.1093/acref/9780198631477.001.0001/acref-9780198631477-e-254"^^xsd:anyURI ;
   qudt:symbol "BMI" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -1731,6 +1783,7 @@ quantitykind:BraggAngle
   qudt:applicableUnit unit:MilliRAD ;
   qudt:applicableUnit unit:RAD ;
   qudt:applicableUnit unit:REV ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "http://reference.iucr.org/dictionary/Bragg_angle"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31897"^^xsd:anyURI ;
   qudt:latexDefinition "\\(2d\\sin{\\vartheta} = n\\lambda \\)"^^qudt:LatexString ;
@@ -1858,6 +1911,7 @@ quantitykind:BurnRate
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
   qudt:applicableUnit unit:FT-PER-SEC ;
@@ -1965,6 +2019,8 @@ quantitykind:CENTER-OF-GRAVITY_X
   qudt:applicableUnit unit:PlanckLength ;
   qudt:applicableUnit unit:ROD ;
   qudt:applicableUnit unit:YD ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
+  qudt:supercededBy quantitykind:CenterOfGravity_X ;
   qudt:symbol "cg" ;
   qudt:url "http://www.grc.nasa.gov/WWW/k-12/airplane/cg.html"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -2009,6 +2065,8 @@ quantitykind:CENTER-OF-GRAVITY_Y
   qudt:applicableUnit unit:PlanckLength ;
   qudt:applicableUnit unit:ROD ;
   qudt:applicableUnit unit:YD ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
+  qudt:supercededBy quantitykind:CenterOfGravity_Y ;
   qudt:symbol "cg" ;
   qudt:url "http://www.grc.nasa.gov/WWW/k-12/airplane/cg.html"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -2053,66 +2111,60 @@ quantitykind:CENTER-OF-GRAVITY_Z
   qudt:applicableUnit unit:PlanckLength ;
   qudt:applicableUnit unit:ROD ;
   qudt:applicableUnit unit:YD ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
+  qudt:supercededBy quantitykind:CenterOfGravity_Z ;
   qudt:symbol "cg" ;
   qudt:url "http://www.grc.nasa.gov/WWW/k-12/airplane/cg.html"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "Center of Gravity in the X axis"@en ;
+  rdfs:label "Center of Gravity in the Z axis"@en ;
   skos:broader quantitykind:Length ;
 .
 quantitykind:CENTER-OF-MASS
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:AMU ;
-  qudt:applicableUnit unit:CARAT ;
-  qudt:applicableUnit unit:CWT_LONG ;
-  qudt:applicableUnit unit:CWT_SHORT ;
-  qudt:applicableUnit unit:CentiGM ;
-  qudt:applicableUnit unit:DRAM_UK ;
-  qudt:applicableUnit unit:DRAM_US ;
-  qudt:applicableUnit unit:DWT ;
-  qudt:applicableUnit unit:DecaGM ;
-  qudt:applicableUnit unit:DeciGM ;
-  qudt:applicableUnit unit:DeciTONNE ;
-  qudt:applicableUnit unit:DeciTON_Metric ;
-  qudt:applicableUnit unit:EarthMass ;
-  qudt:applicableUnit unit:GM ;
-  qudt:applicableUnit unit:GRAIN ;
-  qudt:applicableUnit unit:HectoGM ;
-  qudt:applicableUnit unit:Hundredweight_UK ;
-  qudt:applicableUnit unit:Hundredweight_US ;
-  qudt:applicableUnit unit:KiloGM ;
-  qudt:applicableUnit unit:KiloTON_Metric ;
-  qudt:applicableUnit unit:LB ;
-  qudt:applicableUnit unit:LB_T ;
-  qudt:applicableUnit unit:LunarMass ;
-  qudt:applicableUnit unit:MegaGM ;
-  qudt:applicableUnit unit:MicroGM ;
-  qudt:applicableUnit unit:MilliGM ;
-  qudt:applicableUnit unit:NanoGM ;
-  qudt:applicableUnit unit:OZ ;
-  qudt:applicableUnit unit:OZ_TROY ;
-  qudt:applicableUnit unit:Pennyweight ;
-  qudt:applicableUnit unit:PicoGM ;
-  qudt:applicableUnit unit:PlanckMass ;
-  qudt:applicableUnit unit:Quarter_UK ;
-  qudt:applicableUnit unit:SLUG ;
-  qudt:applicableUnit unit:SolarMass ;
-  qudt:applicableUnit unit:Stone_UK ;
-  qudt:applicableUnit unit:TONNE ;
-  qudt:applicableUnit unit:TON_Assay ;
-  qudt:applicableUnit unit:TON_LONG ;
-  qudt:applicableUnit unit:TON_Metric ;
-  qudt:applicableUnit unit:TON_SHORT ;
-  qudt:applicableUnit unit:TON_UK ;
-  qudt:applicableUnit unit:TON_US ;
-  qudt:applicableUnit unit:U ;
-  qudt:hasDimensionVector qkdv:A0E0L0I0M1H0T0D0 ;
+  qudt:applicableUnit unit:ANGSTROM ;
+  qudt:applicableUnit unit:AU ;
+  qudt:applicableUnit unit:BTU_IT-PER-LB_F ;
+  qudt:applicableUnit unit:CH ;
+  qudt:applicableUnit unit:CentiM ;
+  qudt:applicableUnit unit:DecaM ;
+  qudt:applicableUnit unit:DeciM ;
+  qudt:applicableUnit unit:FATH ;
+  qudt:applicableUnit unit:FM ;
+  qudt:applicableUnit unit:FT ;
+  qudt:applicableUnit unit:FT_US ;
+  qudt:applicableUnit unit:FUR ;
+  qudt:applicableUnit unit:FUR_Long ;
+  qudt:applicableUnit unit:FemtoM ;
+  qudt:applicableUnit unit:GAUGE_FR ;
+  qudt:applicableUnit unit:HectoM ;
+  qudt:applicableUnit unit:IN ;
+  qudt:applicableUnit unit:KiloM ;
+  qudt:applicableUnit unit:LY ;
+  qudt:applicableUnit unit:M ;
+  qudt:applicableUnit unit:MI ;
+  qudt:applicableUnit unit:MI_N ;
+  qudt:applicableUnit unit:MI_US ;
+  qudt:applicableUnit unit:MicroIN ;
+  qudt:applicableUnit unit:MicroM ;
+  qudt:applicableUnit unit:MilLength ;
+  qudt:applicableUnit unit:MilliIN ;
+  qudt:applicableUnit unit:MilliM ;
+  qudt:applicableUnit unit:NanoM ;
+  qudt:applicableUnit unit:PARSEC ;
+  qudt:applicableUnit unit:PCA ;
+  qudt:applicableUnit unit:PT ;
+  qudt:applicableUnit unit:PicoM ;
+  qudt:applicableUnit unit:PlanckLength ;
+  qudt:applicableUnit unit:ROD ;
+  qudt:applicableUnit unit:YD ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
   qudt:plainTextDescription "The point at which the distributed mass of a composite body can be acted upon by a force without inducing any rotation of the composite body." ;
   qudt:symbol "R" ;
   qudt:url "http://en.wikipedia.org/wiki/Center_of_mass"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Center of Mass (CoM)"@en ;
   skos:altLabel "COM" ;
-  skos:broader quantitykind:Mass ;
+  skos:broader quantitykind:PositionVector ;
 .
 quantitykind:CONTRACT-END-ITEM-SPECIFICATION-MASS
   a qudt:QuantityKind ;
@@ -2467,10 +2519,145 @@ quantitykind:CelsiusTemperature
   skos:broader quantitykind:ThermodynamicTemperature ;
   prov:wasDerivedFrom quantitykind:ThermodynamicTemperature ;
 .
+quantitykind:CenterOfGravity_X
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:ANGSTROM ;
+  qudt:applicableUnit unit:AU ;
+  qudt:applicableUnit unit:BTU_IT-PER-LB_F ;
+  qudt:applicableUnit unit:CH ;
+  qudt:applicableUnit unit:CentiM ;
+  qudt:applicableUnit unit:DecaM ;
+  qudt:applicableUnit unit:DeciM ;
+  qudt:applicableUnit unit:FATH ;
+  qudt:applicableUnit unit:FM ;
+  qudt:applicableUnit unit:FT ;
+  qudt:applicableUnit unit:FT_US ;
+  qudt:applicableUnit unit:FUR ;
+  qudt:applicableUnit unit:FUR_Long ;
+  qudt:applicableUnit unit:FemtoM ;
+  qudt:applicableUnit unit:GAUGE_FR ;
+  qudt:applicableUnit unit:HectoM ;
+  qudt:applicableUnit unit:IN ;
+  qudt:applicableUnit unit:KiloM ;
+  qudt:applicableUnit unit:LY ;
+  qudt:applicableUnit unit:M ;
+  qudt:applicableUnit unit:MI ;
+  qudt:applicableUnit unit:MI_N ;
+  qudt:applicableUnit unit:MI_US ;
+  qudt:applicableUnit unit:MicroIN ;
+  qudt:applicableUnit unit:MicroM ;
+  qudt:applicableUnit unit:MilLength ;
+  qudt:applicableUnit unit:MilliIN ;
+  qudt:applicableUnit unit:MilliM ;
+  qudt:applicableUnit unit:NanoM ;
+  qudt:applicableUnit unit:PARSEC ;
+  qudt:applicableUnit unit:PCA ;
+  qudt:applicableUnit unit:PT ;
+  qudt:applicableUnit unit:PicoM ;
+  qudt:applicableUnit unit:PlanckLength ;
+  qudt:applicableUnit unit:ROD ;
+  qudt:applicableUnit unit:YD ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
+  qudt:symbol "cg" ;
+  qudt:url "http://www.grc.nasa.gov/WWW/k-12/airplane/cg.html"^^xsd:anyURI ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Center of Gravity in the X axis"@en ;
+  skos:broader quantitykind:Length ;
+.
+quantitykind:CenterOfGravity_Y
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:ANGSTROM ;
+  qudt:applicableUnit unit:AU ;
+  qudt:applicableUnit unit:BTU_IT-PER-LB_F ;
+  qudt:applicableUnit unit:CH ;
+  qudt:applicableUnit unit:CentiM ;
+  qudt:applicableUnit unit:DecaM ;
+  qudt:applicableUnit unit:DeciM ;
+  qudt:applicableUnit unit:FATH ;
+  qudt:applicableUnit unit:FM ;
+  qudt:applicableUnit unit:FT ;
+  qudt:applicableUnit unit:FT_US ;
+  qudt:applicableUnit unit:FUR ;
+  qudt:applicableUnit unit:FUR_Long ;
+  qudt:applicableUnit unit:FemtoM ;
+  qudt:applicableUnit unit:GAUGE_FR ;
+  qudt:applicableUnit unit:HectoM ;
+  qudt:applicableUnit unit:IN ;
+  qudt:applicableUnit unit:KiloM ;
+  qudt:applicableUnit unit:LY ;
+  qudt:applicableUnit unit:M ;
+  qudt:applicableUnit unit:MI ;
+  qudt:applicableUnit unit:MI_N ;
+  qudt:applicableUnit unit:MI_US ;
+  qudt:applicableUnit unit:MicroIN ;
+  qudt:applicableUnit unit:MicroM ;
+  qudt:applicableUnit unit:MilLength ;
+  qudt:applicableUnit unit:MilliIN ;
+  qudt:applicableUnit unit:MilliM ;
+  qudt:applicableUnit unit:NanoM ;
+  qudt:applicableUnit unit:PARSEC ;
+  qudt:applicableUnit unit:PCA ;
+  qudt:applicableUnit unit:PT ;
+  qudt:applicableUnit unit:PicoM ;
+  qudt:applicableUnit unit:PlanckLength ;
+  qudt:applicableUnit unit:ROD ;
+  qudt:applicableUnit unit:YD ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
+  qudt:symbol "cg" ;
+  qudt:url "http://www.grc.nasa.gov/WWW/k-12/airplane/cg.html"^^xsd:anyURI ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Center of Gravity in the Y axis"@en ;
+  skos:broader quantitykind:Length ;
+.
+quantitykind:CenterOfGravity_Z
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:ANGSTROM ;
+  qudt:applicableUnit unit:AU ;
+  qudt:applicableUnit unit:BTU_IT-PER-LB_F ;
+  qudt:applicableUnit unit:CH ;
+  qudt:applicableUnit unit:CentiM ;
+  qudt:applicableUnit unit:DecaM ;
+  qudt:applicableUnit unit:DeciM ;
+  qudt:applicableUnit unit:FATH ;
+  qudt:applicableUnit unit:FM ;
+  qudt:applicableUnit unit:FT ;
+  qudt:applicableUnit unit:FT_US ;
+  qudt:applicableUnit unit:FUR ;
+  qudt:applicableUnit unit:FUR_Long ;
+  qudt:applicableUnit unit:FemtoM ;
+  qudt:applicableUnit unit:GAUGE_FR ;
+  qudt:applicableUnit unit:HectoM ;
+  qudt:applicableUnit unit:IN ;
+  qudt:applicableUnit unit:KiloM ;
+  qudt:applicableUnit unit:LY ;
+  qudt:applicableUnit unit:M ;
+  qudt:applicableUnit unit:MI ;
+  qudt:applicableUnit unit:MI_N ;
+  qudt:applicableUnit unit:MI_US ;
+  qudt:applicableUnit unit:MicroIN ;
+  qudt:applicableUnit unit:MicroM ;
+  qudt:applicableUnit unit:MilLength ;
+  qudt:applicableUnit unit:MilliIN ;
+  qudt:applicableUnit unit:MilliM ;
+  qudt:applicableUnit unit:NanoM ;
+  qudt:applicableUnit unit:PARSEC ;
+  qudt:applicableUnit unit:PCA ;
+  qudt:applicableUnit unit:PT ;
+  qudt:applicableUnit unit:PicoM ;
+  qudt:applicableUnit unit:PlanckLength ;
+  qudt:applicableUnit unit:ROD ;
+  qudt:applicableUnit unit:YD ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
+  qudt:symbol "cg" ;
+  qudt:url "http://www.grc.nasa.gov/WWW/k-12/airplane/cg.html"^^xsd:anyURI ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Center of Gravity in the Z axis"@en ;
+  skos:broader quantitykind:Length ;
+.
 quantitykind:CharacteristicAcousticImpedance
   a qudt:QuantityKind ;
   dcterms:description "Characteristic impedance at a point in a non-dissipative medium and for a plane progressive wave, the quotient of the sound pressure \\(p\\) by the component of the sound particle velocity \\(v\\) in the direction of the wave propagation."^^qudt:LatexString ;
-  qudt:applicableUnit unit:KiloGM-PER-M2-SEC ;
+  qudt:applicableUnit unit:PA-SEC-PER-M ;
   qudt:hasDimensionVector qkdv:A0E0L-2I0M1H0T-1D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Acoustic_impedance#Characteristic_acoustic_impedance"^^xsd:anyURI ;
   qudt:latexDefinition "\\(Z_c = pc\\), where \\(p\\) is the sound pressure and \\(c\\) is the phase speed of sound."^^qudt:LatexString ;
@@ -2526,6 +2713,15 @@ quantitykind:ChemicalPotential
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Chemical Potential"@en ;
   skos:broader quantitykind:MolarEnergy ;
+.
+quantitykind:Chromaticity
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:UNITLESS ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:informativeReference "https://en.wikipedia.org/wiki/Chromaticity"^^xsd:anyURI ;
+  qudt:plainTextDescription "Chromaticity is an objective specification of the quality of a color regardless of its luminance" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Chromaticity"@en ;
 .
 quantitykind:Circulation
   a qudt:QuantityKind ;
@@ -2700,11 +2896,14 @@ quantitykind:CompressibilityFactor
   qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
   qudt:applicableUnit unit:PPB ;
   qudt:applicableUnit unit:PPM ;
   qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
   qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31890"^^xsd:anyURI ;
   qudt:qkdvDenominator qkdv:A0E0L3I0M0H0T0D0 ;
   qudt:qkdvNumerator qkdv:A0E0L3I0M0H0T0D0 ;
@@ -2726,7 +2925,9 @@ quantitykind:Conductance
   a qudt:QuantityKind ;
   dcterms:description "\\(\\textit{Conductance}\\), for a resistive two-terminal element or two-terminal circuit with terminals A and B, quotient of the electric current i in the element or circuit by the voltage \\(u_{AB}\\) between the terminals: \\(G = \\frac{1}{R}\\), where the electric current is taken as positive if its direction is from A to B and negative in the opposite case. The conductance of an element or circuit is the inverse of its resistance."^^qudt:LatexString ;
   qudt:applicableUnit unit:KiloS ;
+  qudt:applicableUnit unit:MicroS ;
   qudt:applicableUnit unit:MilliS ;
+  qudt:applicableUnit unit:S ;
   qudt:hasDimensionVector qkdv:A0E2L-2I0M-1H0T3D0 ;
   qudt:informativeReference "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=131-12-06"^^xsd:anyURI ;
   qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
@@ -2805,6 +3006,7 @@ quantitykind:CorrelatedColorTemperature
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Correlated Color Temperature"@en-us ;
   rdfs:label "Correlated Colour Temperature"@en ;
+  rdfs:seeAlso quantitykind:Duv ;
   skos:broader quantitykind:ThermodynamicTemperature ;
 .
 quantitykind:CouplingFactor
@@ -2865,6 +3067,8 @@ quantitykind:CubicElectricDipoleMomentPerSquareEnergy
 quantitykind:CubicExpansionCoefficient
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:PER-K ;
+  qudt:applicableUnit unit:PPM-PER-K ;
+  qudt:applicableUnit unit:PPTM-PER-K ;
   qudt:expression "\\(cubic-exp-coef\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H-1T0D0 ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31890"^^xsd:anyURI ;
@@ -2874,6 +3078,7 @@ quantitykind:CubicExpansionCoefficient
   qudt:qkdvNumerator qkdv:A0E0L3I0M0H0T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Cubic Expansion Coefficient"@en ;
+  skos:broader quantitykind:ExpansionRatio ;
 .
 quantitykind:CurieTemperature
   a qudt:QuantityKind ;
@@ -2939,7 +3144,6 @@ quantitykind:Currency
   qudt:applicableUnit unit:EuropeanUnitOfAccount9 ;
   qudt:applicableUnit unit:FalklandIslandsPound ;
   qudt:applicableUnit unit:FijiDollar ;
-  qudt:applicableUnit unit:Flight ;
   qudt:applicableUnit unit:Forint ;
   qudt:applicableUnit unit:FrancCongolais ;
   qudt:applicableUnit unit:GibraltarPound ;
@@ -2960,7 +3164,6 @@ quantitykind:Currency
   qudt:applicableUnit unit:JapaneseYen ;
   qudt:applicableUnit unit:JordanianDinar ;
   qudt:applicableUnit unit:KenyanShilling ;
-  qudt:applicableUnit unit:KiloGM-SEC2 ;
   qudt:applicableUnit unit:Kina ;
   qudt:applicableUnit unit:Kroon ;
   qudt:applicableUnit unit:KuwaitiDinar ;
@@ -2978,7 +3181,6 @@ quantitykind:Currency
   qudt:applicableUnit unit:Lilangeni ;
   qudt:applicableUnit unit:LithuanianLitas ;
   qudt:applicableUnit unit:Loti ;
-  qudt:applicableUnit unit:MDOLLAR-PER-FLIGHT ;
   qudt:applicableUnit unit:MalagasyAriary ;
   qudt:applicableUnit unit:MalawiKwacha ;
   qudt:applicableUnit unit:MalaysianRinggit ;
@@ -2989,7 +3191,6 @@ quantitykind:Currency
   qudt:applicableUnit unit:MexicanPeso ;
   qudt:applicableUnit unit:MexicanUnidadDeInversion ;
   qudt:applicableUnit unit:MillionUSD ;
-  qudt:applicableUnit unit:MillionUSD-PER-YR ;
   qudt:applicableUnit unit:MoldovanLeu ;
   qudt:applicableUnit unit:MoroccanDirham ;
   qudt:applicableUnit unit:Naira ;
@@ -3008,7 +3209,6 @@ quantitykind:Currency
   qudt:applicableUnit unit:OmaniRial ;
   qudt:applicableUnit unit:Ouguiya ;
   qudt:applicableUnit unit:PAB ;
-  qudt:applicableUnit unit:PER-H ;
   qudt:applicableUnit unit:Paanga ;
   qudt:applicableUnit unit:PakistanRupee ;
   qudt:applicableUnit unit:Palladium-OunceTroy ;
@@ -3082,6 +3282,16 @@ quantitykind:Currency
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Currency"@en ;
   skos:broader quantitykind:Asset ;
+.
+quantitykind:CurrencyPerFlight
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:MDOLLAR-PER-FLIGHT ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:qkdvDenominator qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:qkdvNumerator qkdv:A0E0L0I0M0H0T0D1 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Currency Per Flight"@en ;
+  skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:CurrentLinkage
   a qudt:QuantityKind ;
@@ -3210,7 +3420,9 @@ quantitykind:DRY-MASS
 quantitykind:DataRate
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:BIT-PER-SEC ;
+  qudt:applicableUnit unit:GigaBIT-PER-SEC ;
   qudt:applicableUnit unit:KiloBIT-PER-SEC ;
+  qudt:applicableUnit unit:KiloBYTE-PER-SEC ;
   qudt:applicableUnit unit:MegaBIT-PER-SEC ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Data_rate"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
@@ -3310,6 +3522,7 @@ quantitykind:Density
   qudt:baseUnitDimensions "\\(M/L^3\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(kg/m^3\\)"^^qudt:LatexString ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Density"^^xsd:anyURI ;
+  qudt:exactMatch quantitykind:MassDensity ;
   qudt:hasDimensionVector qkdv:A0E0L-3I0M1H0T0D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Density"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\rho = m/V\\), where \\(\\rho\\) is the density, \\(m\\) is the mass, and \\(V\\) is the volume."^^qudt:LatexString ;
@@ -3329,6 +3542,7 @@ quantitykind:DensityInCombustionChamber
 quantitykind:DensityOfStates
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:SEC-PER-RAD-M3 ;
+  qudt:hasDimensionVector qkdv:A0E0L-3I0M0H0T1D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Density_of_states"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31897"^^xsd:anyURI ;
   qudt:plainTextDescription "\"Density of States\" is the number of vibrational modes in an infinitesimal interval of angular frequency divided by the range of that interval and by volume." ;
@@ -3653,24 +3867,14 @@ quantitykind:Dimensionless
   a qudt:QuantityKind ;
   dcterms:description "In dimensional analysis, a dimensionless quantity or quantity of dimension one is a quantity without an associated physical dimension. It is thus a \"pure\" number, and as such always has a dimension of 1. Dimensionless quantities are widely used in mathematics, physics, engineering, economics, and in everyday life (such as in counting). Numerous well-known quantities, such as \\(\\pi\\), \\(\\epsilon\\), and \\(\\psi\\), are dimensionless. By contrast, non-dimensionless quantities are measured in units of length, area, time, etc. Dimensionless quantities are often defined as products or ratios of quantities that are not dimensionless, but whose dimensions cancel out when their powers are multiplied."^^qudt:LatexString ;
   qudt:applicableUnit unit:DECADE ;
-  qudt:applicableUnit unit:ExaBYTE ;
-  qudt:applicableUnit unit:ExbiBYTE ;
-  qudt:applicableUnit unit:GibiBYTE ;
-  qudt:applicableUnit unit:GigaBYTE ;
-  qudt:applicableUnit unit:KibiBYTE ;
-  qudt:applicableUnit unit:KiloBYTE ;
-  qudt:applicableUnit unit:KiloBYTE-PER-SEC ;
-  qudt:applicableUnit unit:MebiBYTE ;
-  qudt:applicableUnit unit:MegaBYTE ;
+  qudt:applicableUnit unit:Flight ;
+  qudt:applicableUnit unit:GigaBasePair ;
   qudt:applicableUnit unit:NP ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:OCT ;
-  qudt:applicableUnit unit:PebiBYTE ;
-  qudt:applicableUnit unit:PetaBYTE ;
+  qudt:applicableUnit unit:RPK ;
   qudt:applicableUnit unit:SUSCEPTIBILITY_ELEC ;
   qudt:applicableUnit unit:SUSCEPTIBILITY_MAG ;
-  qudt:applicableUnit unit:TebiBYTE ;
-  qudt:applicableUnit unit:TeraBYTE ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:baseUnitDimensions "\\(U\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(\\)"^^qudt:LatexString ;
@@ -3688,9 +3892,11 @@ quantitykind:DimensionlessRatio
   qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
   qudt:applicableUnit unit:PPB ;
   qudt:applicableUnit unit:PPM ;
   qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
   qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
@@ -3921,6 +4127,8 @@ quantitykind:DonorIonizationEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -4023,6 +4231,17 @@ quantitykind:DryVolume
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Dry Volume"@en ;
   skos:broader quantitykind:Volume ;
+.
+quantitykind:Duv
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:UNITLESS ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:informativeReference "https://www.waveformlighting.com/tech/calculate-duv-from-cie-1931-xy-coordinates"^^xsd:anyURI ;
+  qudt:informativeReference "https://www1.eere.energy.gov/buildings/publications/pdfs/ssl/led-color-characteristics-factsheet.pdf"^^xsd:anyURI ;
+  qudt:plainTextDescription "Duv is a metric that is short for Delta u,v (not to be confused with Delta u',v') and describes the distance of a light color point from the black body curve." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Delta u,v"@en ;
+  rdfs:seeAlso quantitykind:CorrelatedColorTemperature ;
 .
 quantitykind:DynamicFriction
   a qudt:QuantityKind ;
@@ -4160,6 +4379,7 @@ quantitykind:EarthClosestApproachVehicleVelocity
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
   qudt:applicableUnit unit:FT-PER-SEC ;
@@ -4263,6 +4483,7 @@ quantitykind:EffectiveMass
 quantitykind:EffectiveMultiplicationFactor
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:UNITLESS ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Nuclear_chain_reaction#Effective_neutron_multiplication_factor"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
   qudt:plainTextDescription "The \"Effective Multiplication Factor\" is the multiplication factor for a finite medium." ;
@@ -4279,9 +4500,11 @@ quantitykind:Efficiency
   qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
   qudt:applicableUnit unit:PPB ;
   qudt:applicableUnit unit:PPM ;
   qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
   qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
@@ -4482,8 +4705,6 @@ quantitykind:ElectricConductivity
   qudt:applicableUnit unit:MHO ;
   qudt:applicableUnit unit:MHO_Stat ;
   qudt:applicableUnit unit:MicroMHO ;
-  qudt:applicableUnit unit:MicroS ;
-  qudt:applicableUnit unit:S ;
   qudt:applicableUnit unit:S_Ab ;
   qudt:applicableUnit unit:S_Stat ;
   qudt:baseUnitDimensions "\\(A^2 \\cdot s^3/kg \\cdot m^2\\)"^^qudt:LatexString ;
@@ -4615,6 +4836,7 @@ quantitykind:ElectricDisplacement
   qudt:applicableUnit unit:MegaC-PER-M2 ;
   qudt:applicableUnit unit:MicroC-PER-M2 ;
   qudt:applicableUnit unit:MilliC-PER-M2 ;
+  qudt:exactMatch quantitykind:ElectricFluxDensity ;
   qudt:hasDimensionVector qkdv:A0E1L-2I0M0H0T1D0 ;
   qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
   qudt:informativeReference "http://www.oxfordreference.com/view/10.1093/acref/9780199233991.001.0001/acref-9780199233991-e-895"^^xsd:anyURI ;
@@ -4709,6 +4931,7 @@ quantitykind:ElectricFluxDensity
   qudt:applicableUnit unit:MicroC-PER-M2 ;
   qudt:applicableUnit unit:MilliC-PER-M2 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Electric_flux"^^xsd:anyURI ;
+  qudt:exactMatch quantitykind:ElectricDisplacement ;
   qudt:hasDimensionVector qkdv:A0E1L-2I0M0H0T1D0 ;
   qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\mathbf{D}  = \\epsilon_0 E + P\\), where \\(\\epsilon_0\\) is the electric constant, \\(\\mathbf{E} \\) is electric field strength, and \\(P\\) is electric polarization."^^qudt:LatexString ;
@@ -4756,6 +4979,9 @@ quantitykind:ElectricPotential
   qudt:applicableUnit unit:V ;
   qudt:applicableUnit unit:V_Ab ;
   qudt:applicableUnit unit:V_Stat ;
+  qudt:exactMatch quantitykind:ElectricPotentialDifference ;
+  qudt:exactMatch quantitykind:EnergyPerElectricCharge ;
+  qudt:exactMatch quantitykind:Voltage ;
   qudt:hasDimensionVector qkdv:A0E-1L2I0M1H0T-3D0 ;
   qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=43012"^^xsd:anyURI ;
@@ -4764,7 +4990,9 @@ quantitykind:ElectricPotential
   qudt:symbol "V" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Electric Potential"@en ;
+  owl:sameAs quantitykind:ElectricPotentialDifference ;
   owl:sameAs quantitykind:EnergyPerElectricCharge ;
+  owl:sameAs quantitykind:Voltage ;
   skos:broader quantitykind:EnergyPerElectricCharge ;
 .
 quantitykind:ElectricPotentialDifference
@@ -4777,6 +5005,9 @@ quantitykind:ElectricPotentialDifference
   qudt:applicableUnit unit:V ;
   qudt:applicableUnit unit:V_Ab ;
   qudt:applicableUnit unit:V_Stat ;
+  qudt:exactMatch quantitykind:ElectricPotential ;
+  qudt:exactMatch quantitykind:EnergyPerElectricCharge ;
+  qudt:exactMatch quantitykind:Voltage ;
   qudt:hasDimensionVector qkdv:A0E-1L2I0M1H0T-3D0 ;
   qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
   qudt:latexDefinition "\\(V_{ab} = \\int_{r_a(C)}^{r_b} (E +\\frac{\\partial A}{\\partial t}) \\), where \\(E\\) is electric field strength, \\(A\\) is magentic vector potential,  \\(t\\) is time, and \\(r\\) is position vector along a curve C from a point \\(a\\) to \\(b\\)."^^qudt:LatexString ;
@@ -4784,7 +5015,9 @@ quantitykind:ElectricPotentialDifference
   qudt:symbol "V_{ab}" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Electric Potential Difference"@en ;
+  owl:sameAs quantitykind:ElectricPotential ;
   owl:sameAs quantitykind:EnergyPerElectricCharge ;
+  owl:sameAs quantitykind:Voltage ;
   skos:broader quantitykind:EnergyPerElectricCharge ;
 .
 quantitykind:ElectricPower
@@ -4804,14 +5037,13 @@ quantitykind:ElectricPower
   qudt:applicableUnit unit:FT-LB_F-PER-SEC ;
   qudt:applicableUnit unit:GigaW ;
   qudt:applicableUnit unit:HP ;
-  qudt:applicableUnit unit:HP-PER-M ;
-  qudt:applicableUnit unit:HP-PER-V ;
   qudt:applicableUnit unit:HP_Boiler ;
   qudt:applicableUnit unit:HP_Brake ;
   qudt:applicableUnit unit:HP_Electric ;
   qudt:applicableUnit unit:HP_Metric ;
   qudt:applicableUnit unit:J-PER-HR ;
   qudt:applicableUnit unit:J-PER-SEC ;
+  qudt:applicableUnit unit:KiloBTU_IT-PER-HR ;
   qudt:applicableUnit unit:KiloCAL-PER-MIN ;
   qudt:applicableUnit unit:KiloCAL-PER-SEC ;
   qudt:applicableUnit unit:KiloW ;
@@ -4897,6 +5129,7 @@ quantitykind:ElectromagneticEnergyDensity
   a qudt:QuantityKind ;
   dcterms:description "\\(\\textbf{Electromagnetic Energy Density}\\), also known as the \\(\\color{indigo} {\\textit{Volumic Electromagnetic Energy}}\\), is the energy associated with an electromagnetic field, per unit volume of the field."^^qudt:LatexString ;
   qudt:applicableUnit unit:J-PER-M3 ;
+  qudt:exactMatch quantitykind:VolumicElectromagneticEnergy ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
   qudt:informativeReference "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-11-64"^^xsd:anyURI ;
   qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
@@ -4918,6 +5151,7 @@ quantitykind:ElectromagneticPermeability
   qudt:baseUnitDimensions "\\(L \\cdot M/I^2 \\cdot T^2\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(kg \\cdot m/A^2 \\cdot s^2\\)"^^qudt:LatexString ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Permeability"^^xsd:anyURI ;
+  qudt:exactMatch quantitykind:Permeability ;
   qudt:hasDimensionVector qkdv:A0E-2L1I0M1H0T-2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Permeability_(electromagnetism)"^^xsd:anyURI ;
   qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
@@ -4929,6 +5163,7 @@ quantitykind:ElectromagneticPermeability
   rdfs:seeAlso constant:MagneticConstant ;
   rdfs:seeAlso quantitykind:MagneticFieldStrength_H ;
   rdfs:seeAlso quantitykind:MagneticFluxDensity ;
+  owl:sameAs quantitykind:Permeability ;
 .
 quantitykind:ElectromagneticPermeabilityRatio
   a qudt:QuantityKind ;
@@ -4989,6 +5224,8 @@ quantitykind:ElectronAffinity
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -5153,6 +5390,7 @@ quantitykind:EllipticalOrbitApogeeVelocity
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
   qudt:applicableUnit unit:FT-PER-SEC ;
@@ -5187,6 +5425,7 @@ quantitykind:EllipticalOrbitPerigeeVelocity
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
   qudt:applicableUnit unit:FT-PER-SEC ;
@@ -5246,6 +5485,8 @@ quantitykind:Energy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -5309,6 +5550,7 @@ quantitykind:EnergyDensity
 quantitykind:EnergyDensityOfStates
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:PER-J-M3 ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M-1H0T2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Density_of_states"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31897"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\rho(E) = n_E(E) = \\frac{dN(E)}{dE}\\frac{1}{V}\\), where \\(N(E)\\) is the total number of states with energy less than \\(E\\), and \\(V\\) is the volume."^^qudt:LatexString ;
@@ -5383,6 +5625,8 @@ quantitykind:EnergyImparted
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -5439,6 +5683,8 @@ quantitykind:EnergyInternal
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -5467,12 +5713,15 @@ quantitykind:EnergyInternal
   qudt:applicableUnit unit:W-HR ;
   qudt:applicableUnit unit:W-SEC ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Internal_energy"^^xsd:anyURI ;
+  qudt:exactMatch quantitykind:InternalEnergy ;
+  qudt:exactMatch quantitykind:ThermodynamicEnergy ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Internal_energy"^^xsd:anyURI ;
-  qudt:informativeReference "http://wiki.answers.com/Q/What_is_the_one_letter_symbol_for_energy"^^xsd:anyURI ;
-  qudt:symbol "E" ;
+  qudt:symbol "U" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Internal Energy"@en ;
+  owl:sameAs quantitykind:InternalEnergy ;
+  owl:sameAs quantitykind:ThermodynamicEnergy ;
   skos:broader quantitykind:Energy ;
 .
 quantitykind:EnergyKinetic
@@ -5493,6 +5742,8 @@ quantitykind:EnergyKinetic
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -5546,6 +5797,8 @@ quantitykind:EnergyLevel
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -5626,6 +5879,9 @@ quantitykind:EnergyPerElectricCharge
   qudt:applicableUnit unit:V_Stat ;
   qudt:baseUnitDimensions "\\(L^2 \\cdot M/I \\cdot T^3\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(kg \\cdot m^2/A \\cdot s^3\\)"^^qudt:LatexString ;
+  qudt:exactMatch quantitykind:ElectricPotential ;
+  qudt:exactMatch quantitykind:ElectricPotentialDifference ;
+  qudt:exactMatch quantitykind:Voltage ;
   qudt:hasDimensionVector qkdv:A0E-1L2I0M1H0T-3D0 ;
   qudt:informativeReference "http://physics.about.com/od/glossary/g/voltage.htm"^^xsd:anyURI ;
   qudt:symbol "V" ;
@@ -5680,6 +5936,8 @@ quantitykind:Enthalpy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -5863,7 +6121,7 @@ quantitykind:EvaporativeHeatTransfer
 quantitykind:EvaporativeHeatTransferCoefficient
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:W-PER-M2-PA ;
-  qudt:hasDimensionVector qkdv:A0E0L0I0M1H-1T-3D0 ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T-1D0 ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=43012"^^xsd:anyURI ;
   qudt:plainTextDescription "\"Evaporative Heat Transfer Coefficient\" is the areic heat transfer coefficient multiplied by the water vapor pressure difference between skind and the environment, and by the exchange area." ;
   qudt:symbol "h_e" ;
@@ -5974,6 +6232,9 @@ quantitykind:ExitPlaneTemperature
 .
 quantitykind:ExpansionRatio
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:PER-K ;
+  qudt:applicableUnit unit:PPM-PER-K ;
+  qudt:applicableUnit unit:PPTM-PER-K ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H-1T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Expansion Ratio"@en ;
@@ -6123,6 +6384,8 @@ quantitykind:FermiEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -6239,6 +6502,7 @@ quantitykind:FirstStageMassRatio
   qudt:applicableUnit unit:NanoGM-PER-KiloGM ;
   qudt:applicableUnit unit:PicoGM-PER-GM ;
   qudt:applicableUnit unit:PicoGM-PER-KiloGM ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:plainTextDescription "Mass ratio for the first stage of a multistage launcher." ;
   qudt:symbol "R_1" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -6339,14 +6603,29 @@ quantitykind:Force
 .
 quantitykind:ForceMagnitude
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:ERG ;
-  qudt:applicableUnit unit:J ;
-  qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
+  qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:KIP_F ;
+  qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloN ;
+  qudt:applicableUnit unit:KiloP ;
+  qudt:applicableUnit unit:KiloPOND ;
+  qudt:applicableUnit unit:LB_F ;
+  qudt:applicableUnit unit:MegaLB_F ;
+  qudt:applicableUnit unit:MegaN ;
+  qudt:applicableUnit unit:MicroN ;
+  qudt:applicableUnit unit:MilliN ;
+  qudt:applicableUnit unit:N ;
+  qudt:applicableUnit unit:OZ_F ;
+  qudt:applicableUnit unit:PDL ;
+  qudt:applicableUnit unit:PlanckForce ;
+  qudt:applicableUnit unit:TON_F_US ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M1H0T-2D0 ;
   qudt:informativeReference "http://wiki.answers.com/Q/What_is_magnitude_of_force"^^xsd:anyURI ;
   qudt:plainTextDescription "The 'magnitude' of a force is its 'size' or 'strength', regardless of the direction in which it acts." ;
   qudt:symbol "U" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Force Magnitude"@en ;
+  skos:broader quantitykind:Force ;
 .
 quantitykind:ForcePerAngle
   a qudt:QuantityKind ;
@@ -6723,9 +7002,11 @@ quantitykind:Gain
   qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
   qudt:applicableUnit unit:PPB ;
   qudt:applicableUnit unit:PPM ;
   qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
   qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Gain"^^xsd:anyURI ;
@@ -6755,6 +7036,8 @@ quantitykind:GapEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -6790,6 +7073,18 @@ quantitykind:GapEnergy
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Gap Energy"@en ;
   skos:broader quantitykind:Energy ;
+.
+quantitykind:GeneFamilyAbundance
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:RPK ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:informativeReference "https://learn.gencore.bio.nyu.edu/"^^xsd:anyURI ;
+  qudt:plainTextDescription "The abundance of each gene family in the community. Gene families are groups of evolutionarily-related protein-coding sequences that often perform similar functions. Gene family abundance is reported in RPK (reads per kilobase) units to normalize for gene length." ;
+  qudt:qkdvDenominator qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:qkdvNumerator qkdv:A0E0L0I0M0H0T0D1 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Gene Family Abundance"@en ;
+  skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:GeneralizedCoordinate
   a qudt:QuantityKind ;
@@ -6857,6 +7152,8 @@ quantitykind:GibbsEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -6913,16 +7210,31 @@ quantitykind:GrandCanonicalPartitionFunction
 .
 quantitykind:GravitationalAttraction
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:M3-PER-KiloGM-SEC2 ;
-  qudt:applicableUnit unit:N-M2-PER-KiloGM2 ;
+  qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:KIP_F ;
+  qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloN ;
+  qudt:applicableUnit unit:KiloP ;
+  qudt:applicableUnit unit:KiloPOND ;
+  qudt:applicableUnit unit:LB_F ;
+  qudt:applicableUnit unit:MegaLB_F ;
+  qudt:applicableUnit unit:MegaN ;
+  qudt:applicableUnit unit:MicroN ;
+  qudt:applicableUnit unit:MilliN ;
+  qudt:applicableUnit unit:N ;
+  qudt:applicableUnit unit:OZ_F ;
+  qudt:applicableUnit unit:PDL ;
+  qudt:applicableUnit unit:PlanckForce ;
+  qudt:applicableUnit unit:TON_F_US ;
   qudt:baseUnitDimensions "\\(L^3/M \\cdot T^2\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(m^3/kg \\cdot s^2\\)"^^qudt:LatexString ;
-  qudt:hasDimensionVector qkdv:A0E0L3I0M-1H0T-2D0 ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M1H0T-2D0 ;
   qudt:informativeReference "http://www.thefreedictionary.com/gravitational+attraction"^^xsd:anyURI ;
   qudt:plainTextDescription "The force of attraction between all masses in the universe; especially the attraction of the earth's mass for bodies near its surface; the more remote the body the less the gravity; the gravitation between two bodies is proportional to the product of their masses and inversely proportional to the square of the distance between them." ;
   qudt:symbol "G" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Gravitational Attraction"@en ;
+  skos:broader quantitykind:Force ;
 .
 quantitykind:Gravity_API
   a qudt:QuantityKind ;
@@ -6957,9 +7269,6 @@ quantitykind:GroupSpeedOfSound
 quantitykind:GrowingDegreeDay_Cereal
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DEG_C_GROWING_CEREAL-DAY ;
-  a qudt:QuantityKind ;
-  qudt:applicableUnit unit:DEG_C_GROWING_CEREAL-DAY ;
-  a qudt:QuantityKind ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H1T1D0 ;
   qudt:plainTextDescription "The sum of excess temperature over 5.5°C, where the temperature is the mean of the minimum and maximum atmospheric temperature in a day. This measure is appropriate for most cereal crops." ;
   rdfs:isDefinedBy <https://data.agrimetrics.co.uk/ontologies/qudt-extension> ;
@@ -7142,6 +7451,7 @@ quantitykind:HeartRate
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:BEAT-PER-MIN ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Heart_rate"^^xsd:anyURI ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:informativeReference "http://www.medterms.com/script/main/art.asp?articlekey=3674"^^xsd:anyURI ;
   qudt:informativeReference "http://www.oxfordreference.com/view/10.1093/oi/authority.20110803100354463"^^xsd:anyURI ;
   qudt:plainTextDescription "The number of heartbeats per unit of time, usually per minute. The heart rate is based on the number of contractions of the ventricles (the lower chambers of the heart). The heart rate may be too fast (tachycardia) or too slow (bradycardia). The average adult pulse rate at rest is 60–80 per minute, but exercise, injury, illness, and emotion may produce much faster rates." ;
@@ -7160,6 +7470,8 @@ quantitykind:Heat
   qudt:applicableUnit unit:CAL_TH ;
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloCAL_IT ;
   qudt:applicableUnit unit:KiloCAL_Mean ;
@@ -7201,9 +7513,11 @@ quantitykind:HeatCapacityRatio
   qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
   qudt:applicableUnit unit:PPB ;
   qudt:applicableUnit unit:PPM ;
   qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
   qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Heat_capacity_ratio"^^xsd:anyURI ;
@@ -7227,6 +7541,8 @@ quantitykind:HeatFlowRate
   qudt:applicableUnit unit:BTU_TH-PER-SEC ;
   qudt:applicableUnit unit:CAL_TH-PER-MIN ;
   qudt:applicableUnit unit:CAL_TH-PER-SEC ;
+  qudt:applicableUnit unit:KiloBTU_IT-PER-HR ;
+  qudt:applicableUnit unit:KiloBTU_TH-PER-HR ;
   qudt:applicableUnit unit:KiloCAL-PER-MIN ;
   qudt:applicableUnit unit:KiloCAL-PER-SEC ;
   qudt:applicableUnit unit:KiloCAL_TH-PER-HR ;
@@ -7287,6 +7603,35 @@ quantitykind:HeatFluxDensity
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Heat Flux Density"@en ;
   skos:broader quantitykind:PowerPerArea ;
+.
+quantitykind:HeatingValue
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:BTU_IT-PER-LB ;
+  qudt:applicableUnit unit:BTU_TH-PER-LB ;
+  qudt:applicableUnit unit:CAL_IT-PER-GM ;
+  qudt:applicableUnit unit:CAL_TH-PER-G ;
+  qudt:applicableUnit unit:CAL_TH-PER-GM ;
+  qudt:applicableUnit unit:ERG-PER-G ;
+  qudt:applicableUnit unit:ERG-PER-GM ;
+  qudt:applicableUnit unit:J-PER-GM ;
+  qudt:applicableUnit unit:J-PER-KiloGM ;
+  qudt:applicableUnit unit:KiloCAL-PER-GM ;
+  qudt:applicableUnit unit:KiloJ-PER-KiloGM ;
+  qudt:applicableUnit unit:KiloLB_F-FT-PER-LB ;
+  qudt:applicableUnit unit:MegaJ-PER-KiloGM ;
+  qudt:applicableUnit unit:N-M-PER-KiloGM ;
+  qudt:baseUnitDimensions "\\(L^2/T^2\\)"^^qudt:LatexString ;
+  qudt:baseUnitDimensions "\\(m^2/s^2\\)"^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Specific_energy"^^xsd:anyURI ;
+  qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T-2D0 ;
+  qudt:informativeReference "https://en.wikipedia.org/wiki/Heat_of_combustion"^^xsd:anyURI ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcheatingvaluemeasure.htm"^^xsd:anyURI ;
+  qudt:plaintextDescription "The heating value (or energy value or calorific value) of a substance, usually a fuel or food (see food energy), is the amount of heat released during the combustion of a specified amount of it. " ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Calorific Value"@en ;
+  rdfs:label "Energy Value"@en ;
+  rdfs:label "Heating Value"@en ;
+  skos:broader quantitykind:SpecificEnergy ;
 .
 quantitykind:Height
   a qudt:QuantityKind ;
@@ -7362,6 +7707,8 @@ quantitykind:HelmholtzEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -7633,6 +7980,7 @@ quantitykind:Inductance
 quantitykind:InfiniteMultiplicationFactor
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:UNITLESS ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Four_factor_formula"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
   qudt:latexSymbol "\\(k_\\infty\\)"^^qudt:LatexString ;
@@ -7648,10 +7996,21 @@ quantitykind:InformationEntropy
   qudt:applicableUnit unit:BIT ;
   qudt:applicableUnit unit:BYTE ;
   qudt:applicableUnit unit:ERLANG ;
+  qudt:applicableUnit unit:ExaBYTE ;
+  qudt:applicableUnit unit:ExbiBYTE ;
+  qudt:applicableUnit unit:GibiBYTE ;
+  qudt:applicableUnit unit:GigaBYTE ;
   qudt:applicableUnit unit:HART ;
+  qudt:applicableUnit unit:KibiBYTE ;
+  qudt:applicableUnit unit:KiloBYTE ;
+  qudt:applicableUnit unit:MebiBYTE ;
+  qudt:applicableUnit unit:MegaBYTE ;
   qudt:applicableUnit unit:NAT ;
-  qudt:applicableUnit unit:NAT-PER-SEC ;
+  qudt:applicableUnit unit:PebiBYTE ;
+  qudt:applicableUnit unit:PetaBYTE ;
   qudt:applicableUnit unit:SHANNON ;
+  qudt:applicableUnit unit:TebiBYTE ;
+  qudt:applicableUnit unit:TeraBYTE ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "http://simple.wikipedia.org/wiki/Information_entropy"^^xsd:anyURI ;
   qudt:plainTextDescription "Information Entropy is a concept from information theory. It tells how much information there is in an event. In general, the more uncertain or random the event is, the more information it will contain. The concept of information entropy was created by a mathematician. He was named Claude Elwood Shannon. It has applications in many areas, including lossless data compression, statistical inference, cryptography and recently in other disciplines as biology, physics or machine learning." ;
@@ -7662,6 +8021,7 @@ quantitykind:InformationEntropy
 quantitykind:InformationFlowRate
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:HART-PER-SEC ;
+  qudt:applicableUnit unit:NAT-PER-SEC ;
   qudt:applicableUnit unit:SHANNON-PER-SEC ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -7669,6 +8029,9 @@ quantitykind:InformationFlowRate
 .
 quantitykind:InitialExpansionRatio
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:PER-K ;
+  qudt:applicableUnit unit:PPM-PER-K ;
+  qudt:applicableUnit unit:PPTM-PER-K ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Initial Expansion Ratio"@en ;
   skos:broader quantitykind:ExpansionRatio ;
@@ -7773,6 +8136,8 @@ quantitykind:InternalEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -7801,6 +8166,8 @@ quantitykind:InternalEnergy
   qudt:applicableUnit unit:W-HR ;
   qudt:applicableUnit unit:W-SEC ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Internal_energy"^^xsd:anyURI ;
+  qudt:exactMatch quantitykind:EnergyInternal ;
+  qudt:exactMatch quantitykind:ThermodynamicEnergy ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
   qudt:informativeReference "http://en.citizendium.org/wiki/Internal_energy"^^xsd:anyURI ;
   qudt:latexDefinition "For a closed thermodynamic system, \\(\\Delta U = Q + W\\), where \\(Q\\) is amount of heat transferred to the system and \\(W\\) is work done on the system provided that no chemical reactions occur."^^qudt:LatexString ;
@@ -7813,6 +8180,7 @@ quantitykind:InternalEnergy
   rdfs:seeAlso quantitykind:Enthalpy ;
   rdfs:seeAlso quantitykind:GibbsEnergy ;
   rdfs:seeAlso quantitykind:HelmholtzEnergy ;
+  owl:sameAs quantitykind:EnergyInternal ;
   owl:sameAs quantitykind:ThermodynamicEnergy ;
   skos:broader quantitykind:Energy ;
 .
@@ -7905,6 +8273,7 @@ quantitykind:InversePressure
   qudt:applicableUnit unit:PER-MILLE-PER-PSI ;
   qudt:applicableUnit unit:PER-PA ;
   qudt:applicableUnit unit:PER-PSI ;
+  qudt:exactMatch quantitykind:IsothermalCompressibility ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M-1H0T2D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Inverse Pressure"@en ;
@@ -7936,6 +8305,7 @@ quantitykind:InverseSquareTime
 quantitykind:InverseTemperature
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:PER-K ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H-1T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Inverse Temperature"@en ;
 .
@@ -7970,6 +8340,14 @@ quantitykind:InverseVolume
   qudt:hasDimensionVector qkdv:A0E0L-3I0M0H0T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Inverse Volume"@en ;
+.
+quantitykind:IonConcentration
+  a qudt:QuantityKind ;
+  qudt:hasDimensionVector qkdv:A0E0L-3I0M0H0T0D0 ;
+  qudt:plainTextDescription "\"Ion Concentration\" is the number of ions per unit volume. Also known as ion density." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Ion Concentration"@en ;
+  skos:exactMatch quantitykind:IonDensity ;
 .
 quantitykind:IonCurrent
   a qudt:QuantityKind ;
@@ -8022,6 +8400,7 @@ quantitykind:IonicStrength
   qudt:applicableUnit unit:CentiMOL-PER-KiloGM ;
   qudt:applicableUnit unit:KiloMOL-PER-KiloGM ;
   qudt:applicableUnit unit:MOL-PER-KiloGM ;
+  qudt:applicableUnit unit:MicroMOL-PER-GM ;
   qudt:applicableUnit unit:MilliMOL-PER-GM ;
   qudt:applicableUnit unit:MilliMOL-PER-KiloGM ;
   qudt:hasDimensionVector qkdv:A1E0L0I0M-1H0T0D0 ;
@@ -8051,6 +8430,8 @@ quantitykind:IonizationEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -8144,6 +8525,7 @@ quantitykind:IsothermalCompressibility
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:PER-MILLE-PER-PSI ;
   qudt:applicableUnit unit:PER-PA ;
+  qudt:exactMatch quantitykind:InversePressure ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M-1H0T2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Compressibility"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\varkappa_T = \\frac{1}{V}\\left (\\frac{\\partial V}{\\partial p} \\right )_T\\), where \\(V\\) is volume, \\(p\\) is \\(pressure\\), and \\(T\\) is thermodynamic temperature."^^qudt:LatexString ;
@@ -8152,6 +8534,20 @@ quantitykind:IsothermalCompressibility
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Isothermal compressibility"@en ;
   owl:sameAs quantitykind:InversePressure ;
+.
+quantitykind:IsothermalMoistureCapacity
+  a qudt:QuantityKind ;
+  dcterms:description "\"Isothermal Moisture Capacity\" is the capacity of a material to absorb moisture in the Effective Moisture Penetration Depth (EMPD) model."^^qudt:LatexString ;
+  qudt:applicableUnit unit:DeciL-PER-GM ;
+  qudt:applicableUnit unit:L-PER-KiloGM ;
+  qudt:applicableUnit unit:M3-PER-KiloGM ;
+  qudt:applicableUnit unit:MilliL-PER-KiloGM ;
+  qudt:baseUnitDimensions "\\(L^3/M\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L3I0M-1H0T0D0 ;
+  qudt:informativeReference "https://bigladdersoftware.com/epx/docs/8-4/engineering-reference/effective-moisture-penetration-depth-empd.html#empd-nomenclature"^^xsd:anyURI ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Isothermal Moisture Capacity"@en ;
+  skos:broader quantitykind:SpecificVolume ;
 .
 quantitykind:Kerma
   a qudt:QuantityKind ;
@@ -8191,6 +8587,7 @@ quantitykind:KinematicViscosity
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Kinematic Viscosity"@en ;
   skos:broader quantitykind:AreaPerTime ;
+  skos:broader quantitykind:Viscosity ;
 .
 quantitykind:KineticEnergy
   a qudt:QuantityKind ;
@@ -8211,6 +8608,8 @@ quantitykind:KineticEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -8535,6 +8934,7 @@ quantitykind:LengthTemperature
 quantitykind:LengthTemperatureTime
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:CentiM-SEC-DEG_C ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H1T1D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Length Temperature Time"@en ;
 .
@@ -8658,6 +9058,7 @@ quantitykind:LinearElectricCurrent
   qudt:applicableUnit unit:MilliA-PER-IN ;
   qudt:applicableUnit unit:MilliA-PER-MilliM ;
   qudt:baseUnitDimensions "\\(A/m\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E1L-1I0M0H0T0D0 ;
   qudt:informativeReference "http://www.asknumbers.com/ElectricalConversion.aspx"^^xsd:anyURI ;
   qudt:plainTextDescription "\"Linear Electric Linear Current\" is the electric current per unit line." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -8702,12 +9103,41 @@ quantitykind:LinearEnergyTransfer
 quantitykind:LinearExpansionCoefficient
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:PER-K ;
+  qudt:applicableUnit unit:PPM-PER-K ;
+  qudt:applicableUnit unit:PPTM-PER-K ;
   qudt:expression "\\(lnr-exp-coef\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H-1T0D0 ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31890"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\alpha_l = \\frac{1}{l} \\; \\frac{dl}{dT}\\), where \\(l\\) is \\(length\\) and \\(T\\) is thermodynamic temperature."^^qudt:LatexString ;
   qudt:latexSymbol "\\(\\alpha_l\\)"^^qudt:LatexString ;
+  qudt:qkdvDenominator qkdv:A0E0L1I0M0H1T0D0 ;
+  qudt:qkdvNumerator qkdv:A0E0L1I0M0H0T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Linear Expansion Coefficient"@en ;
+  skos:broader quantitykind:ExpansionRatio ;
+.
+quantitykind:LinearForce
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:DYN-PER-CentiM ;
+  qudt:applicableUnit unit:KiloGM_F-M-PER-CentiM2 ;
+  qudt:applicableUnit unit:KiloLB_F-PER-FT ;
+  qudt:applicableUnit unit:LB_F-PER-FT ;
+  qudt:applicableUnit unit:LB_F-PER-IN ;
+  qudt:applicableUnit unit:MilliN-PER-M ;
+  qudt:applicableUnit unit:N-M-PER-M2 ;
+  qudt:applicableUnit unit:N-PER-CentiM ;
+  qudt:applicableUnit unit:N-PER-M ;
+  qudt:applicableUnit unit:N-PER-MilliM ;
+  qudt:applicableUnit unit:PicoPA-PER-KiloM ;
+  qudt:baseUnitDimensions "\\(M/T^2\\)"^^qudt:LatexString ;
+  qudt:baseUnitDimensions "\\(kg/s^2\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M1H0T-2D0 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcmeasureresource/lexical/ifclinearforcemeasure.htm"^^xsd:anyURI ;
+  qudt:plainTextDescription "Another name for Force Per Length, used by the Industry Foundation Classes (IFC) standard." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Linear Force"@en ;
+  rdfs:label "Streckenlast"@de ;
+  skos:broader quantitykind:ForcePerLength ;
 .
 quantitykind:LinearIonization
   a qudt:QuantityKind ;
@@ -8737,6 +9167,7 @@ quantitykind:LinearMomentum
   qudt:baseUnitDimensions "\\(L \\cdot M/T\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(kg \\cdot m/s\\)"^^qudt:LatexString ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Momentum"^^xsd:anyURI ;
+  qudt:exactMatch quantitykind:Momentum ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M1H0T-1D0 ;
   qudt:latexDefinition "p = m\\upsilon"^^qudt:LatexString ;
   qudt:symbol "p" ;
@@ -8745,6 +9176,29 @@ quantitykind:LinearMomentum
   rdfs:label "Linear Momentum"@en ;
   owl:sameAs quantitykind:Momentum ;
 .
+quantitykind:LinearStiffness
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:DYN-PER-CentiM ;
+  qudt:applicableUnit unit:KiloGM_F-M-PER-CentiM2 ;
+  qudt:applicableUnit unit:KiloLB_F-PER-FT ;
+  qudt:applicableUnit unit:LB_F-PER-FT ;
+  qudt:applicableUnit unit:LB_F-PER-IN ;
+  qudt:applicableUnit unit:MilliN-PER-M ;
+  qudt:applicableUnit unit:N-M-PER-M2 ;
+  qudt:applicableUnit unit:N-PER-CentiM ;
+  qudt:applicableUnit unit:N-PER-M ;
+  qudt:applicableUnit unit:N-PER-MilliM ;
+  qudt:applicableUnit unit:PicoPA-PER-KiloM ;
+  qudt:baseUnitDimensions "\\(M/T^2\\)"^^qudt:LatexString ;
+  qudt:baseUnitDimensions "\\(kg/s^2\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M1H0T-2D0 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcmeasureresource/lexical/ifclinearstiffnessmeasure.htm"^^xsd:anyURI ;
+  qudt:plainTextDescription "Stiffness is the extent to which an object resists deformation in response to an applied force. Linear Stiffness is the term used in the Industry Foundation Classes (IFC) standard." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Linear Force"@en ;
+  rdfs:label "Streckenlast"@de ;
+  skos:broader quantitykind:ForcePerLength ;
+.
 quantitykind:LinearStrain
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DeciB_M ;
@@ -8752,11 +9206,14 @@ quantitykind:LinearStrain
   qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
   qudt:applicableUnit unit:PPB ;
   qudt:applicableUnit unit:PPM ;
   qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
   qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
+  qudt:exactMatch quantitykind:Strain ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Deformation_(mechanics)"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31889"^^xsd:anyURI ;
@@ -8765,6 +9222,7 @@ quantitykind:LinearStrain
   qudt:plainTextDescription "A strain is a normalized measure of deformation representing the displacement between particles in the body relative to a reference length." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Linear Strain"@en ;
+  owl:sameAs quantitykind:Strain ;
   skos:broader quantitykind:Strain ;
 .
 quantitykind:LinearThermalExpansion
@@ -8790,6 +9248,7 @@ quantitykind:LinearVelocity
   qudt:baseUnitDimensions "\\(L/T\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(m/s\\)"^^qudt:LatexString ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Velocity"^^xsd:anyURI ;
+  qudt:exactMatch quantitykind:Velocity ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T-1D0 ;
   qudt:informativeReference "http://au.answers.yahoo.com/question/index?qid=20080319082534AAtrClv"^^xsd:anyURI ;
   qudt:symbol "v" ;
@@ -8918,6 +9377,7 @@ quantitykind:Long-RangeOrderParameter
 quantitykind:LorenzCoefficient
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:V2-PER-K2 ;
+  qudt:hasDimensionVector qkdv:A0E-2L4I0M2H-2T-6D0 ;
   qudt:informativeReference "http://www.matter.org.uk/diffraction/geometry/lattice_vectors.htm"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31897"^^xsd:anyURI ;
   qudt:latexDefinition "\\(L = \\frac{\\lambda}{\\sigma T}\\), where \\(\\lambda\\) is thermal conductivity, \\(\\sigma\\) is electric conductivity, and \\(T\\) is thermodynamic temperature."^^qudt:LatexString ;
@@ -9015,7 +9475,7 @@ quantitykind:LuminousEnergy
 quantitykind:LuminousExposure
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:LUX-HR ;
-  qudt:hasDimensionVector qkdv:A0E0L0I0M1H0T-1D0 ;
+  qudt:hasDimensionVector qkdv:A0E0L-2I1M0H0T1D0 ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Exposure_(photography)#Photometric_and_radiometric_exposure"^^xsd:anyURI ;
   qudt:plainTextDescription "Luminous Exposure is the time-integrated illuminance." ;
   qudt:symbol "H_v" ;
@@ -9030,7 +9490,7 @@ quantitykind:LuminousFlux
   qudt:baseUnitDimensions "\\(J \\cdot U\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(cd\\)"^^qudt:LatexString ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Luminous_flux"^^xsd:anyURI ;
-  qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-3D0 ;
+  qudt:hasDimensionVector qkdv:A0E0L0I1M0H0T0D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Luminous_flux"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=43012"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\Phi_v = K_m \\int_{0}^{\\infty}{\\Phi_\\lambda(\\lambda)}{V(\\lambda)d\\lambda}\\), where \\(K_m\\) is the maximum spectral luminous efficacy, \\(\\Phi_\\lambda(\\lambda)\\) is the spectral radiant flux, \\(V(\\lambda)\\) is the spectral luminous efficiency, and \\(\\lambda\\) is the wavelength."^^qudt:LatexString ;
@@ -9065,6 +9525,15 @@ quantitykind:LuminousIntensity
   qudt:symbol "J" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Luminous Intensity"@en ;
+.
+quantitykind:LuminousIntensityDistribution
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CD-PER-LM ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcluminousintensitydistributionmeasure.htm"^^xsd:anyURI ;
+  qudt:plaintextDescription "\"Luminous Intensity Distribution\" is a measure of the luminous intensity of a light source that changes according to the direction of the ray. It is normally based on some standardized distribution light distribution curves. Usually measured in Candela/Lumen (cd/lm) or (cd/klm)." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Luminous Intensity Distribution"@en ;
 .
 quantitykind:MASS-DELIVERED
   a qudt:QuantityKind ;
@@ -9261,9 +9730,9 @@ quantitykind:MOMENT-OF-INERTIA_Z
 .
 quantitykind:MachNumber
   a qudt:QuantityKind ;
+  dcterms:description "\"Mach Number\" is a dimensionless quantity representing the speed of an object moving through air or other fluid divided by the local speed of sound. It is commonly used to represent the speed of an object when it is traveling close to or above the speed of sound. The Mach number is commonly used both with objects traveling at high speed in a fluid, and with high-speed fluid flows inside channels such as nozzles, diffusers or wind tunnels. As it is defined as a ratio of two speeds, it is a dimensionless number."^^rdf:HTML ;
   qudt:applicableUnit unit:MACH ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Mach_number"^^xsd:anyURI ;
-  dcterms:description "\"Mach Number\" is a dimensionless quantity representing the speed of an object moving through air or other fluid divided by the local speed of sound. It is commonly used to represent the speed of an object when it is traveling close to or above the speed of sound. The Mach number is commonly used both with objects traveling at high speed in a fluid, and with high-speed fluid flows inside channels such as nozzles, diffusers or wind tunnels. As it is defined as a ratio of two speeds, it is a dimensionless number."^^rdf:HTML ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31896"^^xsd:anyURI ;
   qudt:latexDefinition "\\(Ma = \\frac{v_o}{c_o}\\), where \\(v_0\\) is speed, and \\(c_o\\) is speed of sound."^^qudt:LatexString ;
@@ -9297,6 +9766,7 @@ quantitykind:MacroscopicCrossSection
   qudt:applicableUnit unit:NanoM2 ;
   qudt:applicableUnit unit:PlanckArea ;
   qudt:applicableUnit unit:YD2 ;
+  qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T0D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Cross_section_(physics)"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\sum = n_1\\sigma_1 + \\cdots + n_j\\sigma_j +\\), where \\(n_j\\) is the number density and \\(\\sigma_j\\) the cross-section for entities of type \\(j\\)."^^qudt:LatexString ;
@@ -9325,6 +9795,7 @@ quantitykind:MacroscopicTotalCrossSection
   qudt:applicableUnit unit:NanoM2 ;
   qudt:applicableUnit unit:PlanckArea ;
   qudt:applicableUnit unit:YD2 ;
+  qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T0D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Cross_section_(physics)"^^xsd:anyURI ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Nuclear_cross_section"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
@@ -9348,6 +9819,7 @@ quantitykind:MadelungConstant
 .
 quantitykind:MagneticAreaMoment
   a qudt:QuantityKind ;
+  qudt:exactMatch quantitykind:MagneticMoment ;
   qudt:informativeReference "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-11-49"^^xsd:anyURI ;
   qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
   qudt:latexDefinition "\\(m = I e_n A\\), where \\(I\\) is electric current in a small closed loop, \\(e_n\\) is a unit vector perpendicular to the loop, and \\(A\\) is the area of the loop. The magnetic moment of a substance within a domain is the vector sum of the magnetic moments of all entities included in the domain."^^qudt:LatexString ;
@@ -9389,6 +9861,7 @@ quantitykind:MagneticField
   a qudt:QuantityKind ;
   dcterms:description "The Magnetic Field, denoted \\(B\\), is a fundamental field in electrodynamics which characterizes the magnetic force exerted by electric currents.  It is closely related to the auxillary magnetic field H (see quantitykind:AuxillaryMagneticField)."^^qudt:LatexString ;
   qudt:applicableUnit unit:Gamma ;
+  qudt:applicableUnit unit:T ;
   qudt:applicableUnit unit:T_Ab ;
   qudt:baseUnitDimensions "\\(M/I \\cdot T^2\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(kg/A \\cdot s^2\\)"^^qudt:LatexString ;
@@ -9461,6 +9934,7 @@ quantitykind:MagneticFluxDensity
   qudt:symbol "B" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Magnetic flux density"@en ;
+  rdfs:seeAlso quantitykind:MagneticField ;
 .
 quantitykind:MagneticFluxPerUnitLength
   a qudt:QuantityKind ;
@@ -9476,6 +9950,7 @@ quantitykind:MagneticFluxPerUnitLength
 .
 quantitykind:MagneticMoment
   a qudt:QuantityKind ;
+  qudt:exactMatch quantitykind:MagneticAreaMoment ;
   qudt:informativeReference "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-11-49"^^xsd:anyURI ;
   qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
   qudt:latexDefinition "\\(m = I e_n A\\), where \\(I\\) is electric current in a small closed loop, \\(e_n\\) is a unit vector perpendicular to the loop, and \\(A\\) is the area of the loop. The magnetic moment of a substance within a domain is the vector sum of the magnetic moments of all entities included in the domain."^^qudt:LatexString ;
@@ -9578,6 +10053,7 @@ quantitykind:Magnetization
   qudt:applicableUnit unit:KiloA-PER-M ;
   qudt:applicableUnit unit:MilliA-PER-IN ;
   qudt:applicableUnit unit:MilliA-PER-MilliM ;
+  qudt:hasDimensionVector qkdv:A0E1L-1I0M0H0T0D0 ;
   qudt:informativeReference "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-11-52"^^xsd:anyURI ;
   qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
   qudt:latexDefinition "\\(M = dm/dV\\), where \\(m\\) is magentic moment of a substance in a domain with Volume \\(V\\)."^^qudt:LatexString ;
@@ -9674,6 +10150,7 @@ quantitykind:Mass
 quantitykind:MassAbsorptionCoefficient
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:M2-PER-KiloGM ;
+  qudt:hasDimensionVector qkdv:A0E0L2I0M-1H0T0D0 ;
   qudt:latexDefinition "\\(a_m = \\frac{a}{\\rho}\\), where \\(a\\) is the linear absorption coefficient and \\(\\rho\\) is the mass density of the medium."^^qudt:LatexString ;
   qudt:latexSymbol "\\(a_m\\)"^^qudt:LatexString ;
   qudt:plainTextDescription "The mass absorption coefficient is the linear absorption coefficient divided by the density of the absorber." ;
@@ -9685,12 +10162,14 @@ quantitykind:MassAbsorptionCoefficient
 quantitykind:MassAmountOfSubstance
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:LB-MOL ;
+  qudt:hasDimensionVector qkdv:A1E0L0I0M1H0T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Mass Amount of Substance"@en ;
 .
 quantitykind:MassAmountOfSubstanceTemperature
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:LB-MOL-DEG_F ;
+  qudt:hasDimensionVector qkdv:A1E0L0I0M0H1T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Mass Amount of Substance Temperature"@en ;
 .
@@ -9714,6 +10193,7 @@ quantitykind:MassConcentration
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:KiloGM-PER-M3 ;
   qudt:applicableUnit unit:MicroGM-PER-MilliL ;
+  qudt:applicableUnit unit:MilliGM-PER-MilliL ;
   qudt:applicableUnit unit:NanoGM-PER-MilliL ;
   qudt:applicableUnit unit:PicoGM-PER-MilliL ;
   qudt:hasDimensionVector qkdv:A0E0L-3I0M1H0T0D0 ;
@@ -9830,6 +10310,7 @@ quantitykind:MassDensity
   qudt:applicableUnit unit:MicroGM-PER-MilliL ;
   qudt:applicableUnit unit:MilliGM-PER-L ;
   qudt:applicableUnit unit:MilliGM-PER-M3 ;
+  qudt:applicableUnit unit:MilliGM-PER-MilliL ;
   qudt:applicableUnit unit:NanoGM-PER-L ;
   qudt:applicableUnit unit:NanoGM-PER-M3 ;
   qudt:applicableUnit unit:NanoGM-PER-MicroL ;
@@ -9844,6 +10325,7 @@ quantitykind:MassDensity
   qudt:applicableUnit unit:TON_UK-PER-YD3 ;
   qudt:applicableUnit unit:TON_US-PER-YD3 ;
   qudt:baseUnitDimensions "\\(kg m^{-3}\\)"^^qudt:LatexString ;
+  qudt:exactMatch quantitykind:Density ;
   qudt:hasDimensionVector qkdv:A0E0L-3I0M1H0T0D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Density"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31889"^^xsd:anyURI ;
@@ -9858,6 +10340,7 @@ quantitykind:MassDensity
 quantitykind:MassEnergyTransferCoefficient
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:M2-PER-KiloGM ;
+  qudt:hasDimensionVector qkdv:A0E0L2I0M-1H0T0D0 ;
   qudt:informativeReference "http://physics.nist.gov/PhysRefData/XrayMassCoef/chap3.html"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\frac{\\mu_{tr}}{\\rho} = -\\frac{1}{\\rho}\\frac{1}{R}\\frac{dR_{tr}}{dl}\\), where \\(dR_{tr}\\) is the mean energy that is transferred to kinetic energy of charged particles by interactions of the incident radiation \\(R\\) in traversing a distance \\(dl\\) in the material of density \\(\\rho\\)."^^qudt:LatexString ;
@@ -10056,6 +10539,7 @@ quantitykind:MassPerArea
   qudt:applicableUnit unit:LB-PER-IN2 ;
   qudt:applicableUnit unit:MicroG-PER-CentiM2 ;
   qudt:applicableUnit unit:MilliGM-PER-CentiM2 ;
+  qudt:applicableUnit unit:MilliGM-PER-HA ;
   qudt:applicableUnit unit:MilliGM-PER-M2 ;
   qudt:applicableUnit unit:OZ-PER-FT2 ;
   qudt:applicableUnit unit:OZ-PER-YD2 ;
@@ -10083,6 +10567,7 @@ quantitykind:MassPerAreaTime
   qudt:applicableUnit unit:MilliGM-PER-M2-DAY ;
   qudt:applicableUnit unit:MilliGM-PER-M2-HR ;
   qudt:applicableUnit unit:MilliGM-PER-M2-SEC ;
+  qudt:applicableUnit unit:TONNE-PER-HA-YR ;
   qudt:baseUnitDimensions "\\(M/L^2 \\cdot T\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(kg/m^2 \\cdot s\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L-2I0M1H0T-1D0 ;
@@ -10207,8 +10692,7 @@ quantitykind:MassicActivity
 quantitykind:MassieuFunction
   a qudt:QuantityKind ;
   dcterms:description "The Massieu function, \\(\\Psi\\), is defined as: \\(\\Psi = \\Psi (X_1, \\dots , X_i, Y_{i+1}, \\dots , Y_r  )\\),  where for every system with degree of freedom \\(r\\) one may choose \\(r\\) variables, e.g. , to define a coordinate system, where \\(X\\) and \\(Y\\) are extensive and intensive variables, respectively, and where at least one extensive variable must be within this set in order to define the size of the system. The \\((r + 1)^{th}\\) variable,\\(\\Psi\\) , is then called the Massieu function."^^qudt:LatexString ;
-  qudt:applicableUnit unit:J-PER-KiloGM ;
-  qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T-2D0 ;
+  qudt:hasDimensionVector qkdv:A0E0L2I0M1H-1T-2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Massieu_function"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31890"^^xsd:anyURI ;
   qudt:latexDefinition "\\(J = -A/T\\), where \\(A\\) is Helmholtz energy and \\(T\\) is thermodynamic temperature."^^qudt:LatexString ;
@@ -10312,6 +10796,8 @@ quantitykind:MaximumBeta-ParticleEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -10430,6 +10916,8 @@ quantitykind:MeanEnergyImparted
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -10604,6 +11092,8 @@ quantitykind:MechanicalEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -10679,6 +11169,7 @@ quantitykind:MeltingPoint
 quantitykind:MicroCanonicalPartitionFunction
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:UNITLESS ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Microcanonical_ensemble"^^xsd:anyURI ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Partition_function_(statistical_mechanics)#Grand_canonical_partition_function"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31894"^^xsd:anyURI ;
@@ -10774,6 +11265,7 @@ quantitykind:MigrationLength
 quantitykind:Mobility
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:M2-PER-V-SEC ;
+  qudt:hasDimensionVector qkdv:A0E1L0I0M-1H0T4D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Electron_mobility"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
   qudt:latexSymbol "\\(\\mu\\)"^^qudt:LatexString ;
@@ -10834,11 +11326,144 @@ the quotient of rms voltage and rms electric current; it is often denoted by \\(
   rdfs:label "Modulus Of Impedance"@en ;
   rdfs:seeAlso quantitykind:Impedance ;
 .
+quantitykind:ModulusOfLinearSubgradeReaction
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:N-PER-M2 ;
+  qudt:hasDimensionVector qkdv:A0E0L-2I0M1H0T-2D0 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcmodulusoflinearsubgradereactionmeasure.htm"^^xsd:anyURI ;
+  qudt:plaintextDescription "Modulus of Linear Subgrade Reaction is a measure for modulus of linear subgrade reaction, which expresses the elastic bedding of a linear structural element per length, such as for a beam. It is typically measured in N/m^2" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Modulus of Linear Subgrade Reaction"@en ;
+  skos:broader quantitykind:ForcePerArea ;
+.
+quantitykind:ModulusOfRotationalSubgradeReaction
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:N-M-PER-M-RAD ;
+  qudt:hasDimensionVector qkdv:A0E0L-2I0M1H0T-2D0 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcmodulusofrotationalsubgradereactionmeasure.htm"^^xsd:anyURI ;
+  qudt:plaintextDescription "Modulus of Rotational Subgrade Reaction is a measure for modulus of rotational subgrade reaction, which expresses the rotational elastic bedding of a linear structural element per length, such as for a beam. It is typically measured in Nm/(m*rad)." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Modulus of Rotational Subgrade Reaction"@en ;
+  skos:broader quantitykind:ForcePerAngle ;
+.
+quantitykind:ModulusOfSubgradeReaction
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:N-PER-M3 ;
+  qudt:hasDimensionVector qkdv:A0E0L-2I0M1H0T-2D0 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcmodulusofsubgradereactionmeasure.htm"^^xsd:anyURI ;
+  qudt:plaintextDescription "Modulus of Subgrade Reaction is a geotechnical measure describing interaction between foundation structures and the soil. May also be known as bedding measure. Usually measured in N/m3." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Modulus of Subgrade Reaction"@en ;
+.
+quantitykind:MoistureDiffusivity
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:BBL_UK_PET-PER-DAY ;
+  qudt:applicableUnit unit:BBL_UK_PET-PER-HR ;
+  qudt:applicableUnit unit:BBL_UK_PET-PER-MIN ;
+  qudt:applicableUnit unit:BBL_UK_PET-PER-SEC ;
+  qudt:applicableUnit unit:BBL_US-PER-DAY ;
+  qudt:applicableUnit unit:BBL_US-PER-MIN ;
+  qudt:applicableUnit unit:BBL_US_PET-PER-HR ;
+  qudt:applicableUnit unit:BBL_US_PET-PER-SEC ;
+  qudt:applicableUnit unit:BU_UK-PER-DAY ;
+  qudt:applicableUnit unit:BU_UK-PER-HR ;
+  qudt:applicableUnit unit:BU_UK-PER-MIN ;
+  qudt:applicableUnit unit:BU_UK-PER-SEC ;
+  qudt:applicableUnit unit:BU_US_DRY-PER-DAY ;
+  qudt:applicableUnit unit:BU_US_DRY-PER-HR ;
+  qudt:applicableUnit unit:BU_US_DRY-PER-MIN ;
+  qudt:applicableUnit unit:BU_US_DRY-PER-SEC ;
+  qudt:applicableUnit unit:CentiM3-PER-DAY ;
+  qudt:applicableUnit unit:CentiM3-PER-HR ;
+  qudt:applicableUnit unit:CentiM3-PER-MIN ;
+  qudt:applicableUnit unit:CentiM3-PER-SEC ;
+  qudt:applicableUnit unit:DeciM3-PER-DAY ;
+  qudt:applicableUnit unit:DeciM3-PER-HR ;
+  qudt:applicableUnit unit:DeciM3-PER-MIN ;
+  qudt:applicableUnit unit:DeciM3-PER-SEC ;
+  qudt:applicableUnit unit:FT3-PER-DAY ;
+  qudt:applicableUnit unit:FT3-PER-HR ;
+  qudt:applicableUnit unit:FT3-PER-MIN ;
+  qudt:applicableUnit unit:FT3-PER-SEC ;
+  qudt:applicableUnit unit:GAL_UK-PER-DAY ;
+  qudt:applicableUnit unit:GAL_UK-PER-HR ;
+  qudt:applicableUnit unit:GAL_UK-PER-MIN ;
+  qudt:applicableUnit unit:GAL_UK-PER-SEC ;
+  qudt:applicableUnit unit:GAL_US-PER-HR ;
+  qudt:applicableUnit unit:GAL_US-PER-SEC ;
+  qudt:applicableUnit unit:GI_UK-PER-DAY ;
+  qudt:applicableUnit unit:GI_UK-PER-HR ;
+  qudt:applicableUnit unit:GI_UK-PER-MIN ;
+  qudt:applicableUnit unit:GI_UK-PER-SEC ;
+  qudt:applicableUnit unit:GI_US-PER-DAY ;
+  qudt:applicableUnit unit:GI_US-PER-HR ;
+  qudt:applicableUnit unit:GI_US-PER-MIN ;
+  qudt:applicableUnit unit:GI_US-PER-SEC ;
+  qudt:applicableUnit unit:IN3-PER-HR ;
+  qudt:applicableUnit unit:IN3-PER-MIN ;
+  qudt:applicableUnit unit:IN3-PER-SEC ;
+  qudt:applicableUnit unit:KiloL-PER-HR ;
+  qudt:applicableUnit unit:L-PER-DAY ;
+  qudt:applicableUnit unit:L-PER-HR ;
+  qudt:applicableUnit unit:L-PER-MIN ;
+  qudt:applicableUnit unit:L-PER-SEC ;
+  qudt:applicableUnit unit:M3-PER-DAY ;
+  qudt:applicableUnit unit:M3-PER-HR ;
+  qudt:applicableUnit unit:M3-PER-MIN ;
+  qudt:applicableUnit unit:M3-PER-SEC ;
+  qudt:applicableUnit unit:MilliL-PER-DAY ;
+  qudt:applicableUnit unit:MilliL-PER-HR ;
+  qudt:applicableUnit unit:MilliL-PER-MIN ;
+  qudt:applicableUnit unit:MilliL-PER-SEC ;
+  qudt:applicableUnit unit:OZ_VOL_UK-PER-DAY ;
+  qudt:applicableUnit unit:OZ_VOL_UK-PER-HR ;
+  qudt:applicableUnit unit:OZ_VOL_UK-PER-MIN ;
+  qudt:applicableUnit unit:OZ_VOL_UK-PER-SEC ;
+  qudt:applicableUnit unit:OZ_VOL_US-PER-DAY ;
+  qudt:applicableUnit unit:OZ_VOL_US-PER-HR ;
+  qudt:applicableUnit unit:OZ_VOL_US-PER-MIN ;
+  qudt:applicableUnit unit:OZ_VOL_US-PER-SEC ;
+  qudt:applicableUnit unit:PINT_UK-PER-DAY ;
+  qudt:applicableUnit unit:PINT_UK-PER-HR ;
+  qudt:applicableUnit unit:PINT_UK-PER-MIN ;
+  qudt:applicableUnit unit:PINT_UK-PER-SEC ;
+  qudt:applicableUnit unit:PINT_US-PER-DAY ;
+  qudt:applicableUnit unit:PINT_US-PER-HR ;
+  qudt:applicableUnit unit:PINT_US-PER-MIN ;
+  qudt:applicableUnit unit:PINT_US-PER-SEC ;
+  qudt:applicableUnit unit:PK_UK-PER-DAY ;
+  qudt:applicableUnit unit:PK_UK-PER-HR ;
+  qudt:applicableUnit unit:PK_UK-PER-MIN ;
+  qudt:applicableUnit unit:PK_UK-PER-SEC ;
+  qudt:applicableUnit unit:PK_US_DRY-PER-DAY ;
+  qudt:applicableUnit unit:PK_US_DRY-PER-HR ;
+  qudt:applicableUnit unit:PK_US_DRY-PER-MIN ;
+  qudt:applicableUnit unit:PK_US_DRY-PER-SEC ;
+  qudt:applicableUnit unit:QT_UK-PER-DAY ;
+  qudt:applicableUnit unit:QT_UK-PER-HR ;
+  qudt:applicableUnit unit:QT_UK-PER-MIN ;
+  qudt:applicableUnit unit:QT_UK-PER-SEC ;
+  qudt:applicableUnit unit:QT_US-PER-DAY ;
+  qudt:applicableUnit unit:QT_US-PER-HR ;
+  qudt:applicableUnit unit:QT_US-PER-MIN ;
+  qudt:applicableUnit unit:QT_US-PER-SEC ;
+  qudt:applicableUnit unit:YD3-PER-DAY ;
+  qudt:applicableUnit unit:YD3-PER-HR ;
+  qudt:applicableUnit unit:YD3-PER-MIN ;
+  qudt:applicableUnit unit:YD3-PER-SEC ;
+  qudt:baseUnitDimensions "\\(m^{3} sec^{-1}\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L3I0M0H0T-1D0 ;
+  qudt:symbol "q_V" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Moisture Diffusivity"@en ;
+  skos:broader quantitykind:VolumeFlowRate ;
+.
 quantitykind:MolalityOfSolute
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:CentiMOL-PER-KiloGM ;
   qudt:applicableUnit unit:KiloMOL-PER-KiloGM ;
   qudt:applicableUnit unit:MOL-PER-KiloGM ;
+  qudt:applicableUnit unit:MicroMOL-PER-GM ;
   qudt:hasDimensionVector qkdv:A1E0L0I0M-1H0T0D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Molality"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31894"^^xsd:anyURI ;
@@ -10847,16 +11472,20 @@ quantitykind:MolalityOfSolute
   qudt:symbol "b_B" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Molality of Solute"@en ;
+  skos:broader quantitykind:AmountOfSubstancePerUnitMass ;
 .
 quantitykind:MolarAbsorptionCoefficient
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:M2-PER-KiloGM ;
+  qudt:applicableUnit unit:M2-PER-MOL ;
+  qudt:exactMatch quantitykind:MolarAttenuationCoefficient ;
+  qudt:hasDimensionVector qkdv:A0E0L2I0M-1H0T0D0 ;
   qudt:latexDefinition "\\(x = aV_m\\), where \\(a\\) is the linear absorption coefficient and \\(V_m\\) is the molar volume."^^qudt:LatexString ;
   qudt:plainTextDescription "\"Molar Absorption Coefficient\" is a spectrophotometric unit indicating the light a substance absorbs with respect to length, usually centimeters, and concentration, usually moles per liter." ;
   qudt:symbol "x" ;
   qudt:systemDerivedQuantityKind qudt:SOQ_SI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Molar Absorption Coefficient"@en ;
+  owl:sameAs quantitykind:MolarAttenuationCoefficient ;
   skos:exactMatch <http://medical-dictionary.thefreedictionary.com/molar+absorption+coefficient> ;
 .
 quantitykind:MolarAngularMomentum
@@ -10872,6 +11501,8 @@ quantitykind:MolarAngularMomentum
 quantitykind:MolarAttenuationCoefficient
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:M2-PER-MOL ;
+  qudt:exactMatch quantitykind:MolarAbsorptionCoefficient ;
+  qudt:hasDimensionVector qkdv:A-1E0L2I0M0H0T0D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Mass_attenuation_coefficient"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\mu_c = -\\frac{\\mu}{c}\\), where \\(\\mu\\) is the linear attenuation coefficient and \\(c\\) is the amount-of-substance concentration."^^qudt:LatexString ;
@@ -10879,6 +11510,7 @@ quantitykind:MolarAttenuationCoefficient
   qudt:plainTextDescription "\"Molar Attenuation Coefficient\" is a measurement of how strongly a chemical species or substance absorbs or scatters light at a given wavelength, per amount of substance." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Molar Attenuation Coefficient"@en ;
+  owl:sameAs quantitykind:MolarAbsorptionCoefficient ;
   skos:closeMatch quantitykind:MassAttenuationCoefficient ;
 .
 quantitykind:MolarConductivity
@@ -10974,6 +11606,7 @@ quantitykind:MolarMass
 quantitykind:MolarOpticalRotatoryPower
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:RAD-M2-PER-MOL ;
+  qudt:hasDimensionVector qkdv:A-1E0L2I0M0H0T0D0 ;
   qudt:informativeReference "http://goldbook.iupac.org/O04313.html"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31894"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\alpha_n = \\alpha \\frac{A}{n}\\), where \\(\\alpha\\) is the angle of optical rotation, and \\(n\\) is the amount of substance of the optically active component in the path of a linearly polarized light beam of cross sectional area \\(A\\)."^^qudt:LatexString ;
@@ -11020,9 +11653,11 @@ quantitykind:MoleFraction
   qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
   qudt:applicableUnit unit:PPB ;
   qudt:applicableUnit unit:PPM ;
   qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
   qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Mole_fraction"^^xsd:anyURI ;
@@ -11069,7 +11704,7 @@ quantitykind:MolecularMass
 quantitykind:MolecularViscosity
   a qudt:QuantityKind ;
   qudt:informativeReference "http://oceanworld.tamu.edu/resources/ocng_textbook/chapter08/chapter08_01.htm"^^xsd:anyURI ;
-  qudt:plainTextDescription "Molecules in a fluid close to a solid boundary sometime strike the boundary and transfer momentum to it. Molecules further from the boundary collide with molecules that have struck the boundary, further transferring the change in momentum into the interior of the fluid. This transfer of momentum is molecular viscosity. Molecules, however, travel only micrometers between collisions, and the process is very inefficient for transferring momentum even a few centimeters. Molecular viscosity is important only within a few millimeters of a boundary." ;
+  qudt:plainTextDescription "Molecules in a fluid close to a solid boundary sometime strike the boundary and transfer momentum to it. Molecules further from the boundary collide with molecules that have struck the boundary, further transferring the change in momentum into the interior of the fluid. This transfer of momentum is molecular viscosity. Molecules, however, travel only micrometers between collisions, and the process is very inefficient for transferring momentum even a few centimeters. Molecular viscosity is important only within a few millimeters of a boundary. The coefficient of molecular viscosity has the same value as the dynamic viscosity." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Molecular Viscosity"@en ;
   skos:broader quantitykind:Viscosity ;
@@ -11077,6 +11712,7 @@ quantitykind:MolecularViscosity
 quantitykind:MomentOfForce
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:N-M ;
+  qudt:exactMatch quantitykind:Torque ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Moment_(physics)"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31889"^^xsd:anyURI ;
@@ -11109,12 +11745,14 @@ quantitykind:MomentOfInertia
 quantitykind:Momentum
   a qudt:QuantityKind ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Momentum"^^xsd:anyURI ;
+  qudt:exactMatch quantitykind:LinearMomentum ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M1H0T-1D0 ;
   qudt:plainTextDescription "The momentum of a system of particles is given by the sum of the momentums of the individual particles which make up the system or by the product of the total mass of the system and the velocity of the center of gravity of the system. The momentum of a continuous medium is given by the integral of the velocity over the mass of the medium or by the product of the total mass of the medium and the velocity of the center of gravity of the medium." ;
   qudt:symbol "p" ;
   qudt:url "http://en.wikipedia.org/wiki/Momentum"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Momentum"@en ;
+  owl:sameAs quantitykind:LinearMomentum ;
 .
 quantitykind:MomentumPerAngle
   a qudt:QuantityKind ;
@@ -11389,6 +12027,27 @@ quantitykind:NormalStress
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Normal Stress"@en ;
   skos:broader quantitykind:Stress ;
+.
+quantitykind:NormalizedDimensionlessRatio
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:DeciB_M ;
+  qudt:applicableUnit unit:FRACTION ;
+  qudt:applicableUnit unit:GR ;
+  qudt:applicableUnit unit:NUM ;
+  qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
+  qudt:applicableUnit unit:PPB ;
+  qudt:applicableUnit unit:PPM ;
+  qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
+  qudt:applicableUnit unit:PPTR ;
+  qudt:applicableUnit unit:UNITLESS ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC2/HTML/link/ifcnormalisedratiomeasure.htm"^^xsd:anyURI ;
+  qudt:plainTextDescription "A \"Normalized Dimensionless Ratio\" is a dimensionless ratio ranging from 0.0 to 1.0" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Positive Dimensionless Ratio"@en ;
+  skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:NozzleThroatCrossSectionalArea
   a qudt:QuantityKind ;
@@ -11698,6 +12357,16 @@ quantitykind:OverRangeDistance
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Over-range distance"@en ;
 .
+quantitykind:PH
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:PH ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:informativeReference "https://en.wikipedia.org/wiki/Acid"^^xsd:anyURI ;
+  qudt:informativeReference "https://en.wikipedia.org/wiki/PH"^^xsd:anyURI ;
+  qudt:plaintextDescription "Chemicals or substances having a pH less than 7 are said to be acidic; more than 7 means basic." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "PH"@en ;
+.
 quantitykind:PREDICTED-MASS
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:AMU ;
@@ -11855,14 +12524,37 @@ quantitykind:PartialPressure
 .
 quantitykind:ParticleCurrent
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:PER-M2-SEC ;
-  qudt:hasDimensionVector qkdv:A0E0L-2I0M0H0T-1D0 ;
+  qudt:applicableUnit unit:GigaHZ ;
+  qudt:applicableUnit unit:HZ ;
+  qudt:applicableUnit unit:KiloHZ ;
+  qudt:applicableUnit unit:MegaHZ ;
+  qudt:applicableUnit unit:NUM-PER-HR ;
+  qudt:applicableUnit unit:NUM-PER-SEC ;
+  qudt:applicableUnit unit:NUM-PER-YR ;
+  qudt:applicableUnit unit:PER-DAY ;
+  qudt:applicableUnit unit:PER-HR ;
+  qudt:applicableUnit unit:PER-MIN ;
+  qudt:applicableUnit unit:PER-MO ;
+  qudt:applicableUnit unit:PER-MilliSEC ;
+  qudt:applicableUnit unit:PER-SEC ;
+  qudt:applicableUnit unit:PER-WK ;
+  qudt:applicableUnit unit:PER-YR ;
+  qudt:applicableUnit unit:PERCENT-PER-DAY ;
+  qudt:applicableUnit unit:PERCENT-PER-HR ;
+  qudt:applicableUnit unit:PERCENT-PER-WK ;
+  qudt:applicableUnit unit:PlanckFrequency ;
+  qudt:applicableUnit unit:SAMPLE-PER-SEC ;
+  qudt:applicableUnit unit:TeraHZ ;
+  qudt:applicableUnit unit:failures-in-time ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\int J \\cdot e_n dA = \\frac{dN}{dt}\\), where \\(e_ndA\\) is the vector surface element, \\(N\\) is the net number of particles passing over a surface, and \\(dt\\) describes the time interval."^^qudt:LatexString ;
   qudt:plainTextDescription "\"Particle Current\" can be used to describe the net number of particles passing through a surface in an infinitesimal time interval." ;
-  qudt:symbol "J, S" ;
+  qudt:symbol "J" ;
+  qudt:symbol "S" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Particle Current"@en ;
+  skos:broader quantitykind:Frequency ;
 .
 quantitykind:ParticleFluence
   a qudt:QuantityKind ;
@@ -12050,6 +12742,8 @@ quantitykind:Permeability
   qudt:applicableUnit unit:H_Stat-PER-CentiM ;
   qudt:applicableUnit unit:MicroH-PER-M ;
   qudt:applicableUnit unit:NanoH-PER-M ;
+  qudt:exactMatch quantitykind:ElectromagneticPermeability ;
+  qudt:hasDimensionVector qkdv:A0E-2L1I0M1H0T-2D0 ;
   rdfs:label "Permeability"@en ;
   owl:sameAs quantitykind:ElectromagneticPermeability ;
 .
@@ -12085,7 +12779,6 @@ quantitykind:Permittivity
   qudt:applicableUnit unit:MicroFARAD-PER-KiloM ;
   qudt:applicableUnit unit:MicroFARAD-PER-M ;
   qudt:applicableUnit unit:NanoFARAD-PER-M ;
-  qudt:applicableUnit unit:PERMITTIVITY_REL ;
   qudt:applicableUnit unit:PicoFARAD-PER-M ;
   qudt:baseUnitDimensions "\\(A^2 \\cdot s^4/kg \\cdot m^3\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(I^2 \\cdot T^4/L^3 \\cdot M\\)"^^qudt:LatexString ;
@@ -12099,6 +12792,23 @@ quantitykind:Permittivity
   qudt:plainTextDescription "\"Permittivity\" is a physical quantity that describes how an electric field affects, and is affected by a dielectric medium, and is determined by the ability of a material to polarize in response to the field, and thereby reduce the total electric field inside the material.  Permittivity is often a scalar valued quantity, however in the general case it is tensor-valued." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Permittivity"@en ;
+.
+quantitykind:PermittivityRatio
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:UNITLESS ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Permittivity"^^xsd:anyURI ;
+  qudt:expression "\\(rel-permittivity\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
+  qudt:latexDefinition "\\(\\epsilon_r = \\epsilon / \\epsilon_0\\), where \\(\\epsilon\\) is permittivity and \\(\\epsilon_0\\) is the electric constant."^^qudt:LatexString ;
+  qudt:latexSymbol "\\(\\epsilon_r\\)"^^qudt:LatexString ;
+  qudt:plainTextDescription "\"Permittivity Ratio\" is the ratio of permittivity to the permittivity of a vacuum." ;
+  qudt:qkdvDenominator qkdv:A0E2L-3I0M-1H0T4D0 ;
+  qudt:qkdvNumerator qkdv:A0E2L-3I0M-1H0T4D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Permittivity Ratio"@en ;
+  rdfs:seeAlso quantitykind:Permittivity ;
+  skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:PhaseCoefficient
   a qudt:QuantityKind ;
@@ -12238,6 +12948,71 @@ quantitykind:PhotosyntheticPhotonFluxDensity
   skos:altLabel "PPFD" ;
   prov:wasDerivedFrom <https://www.dormgrow.com/par> ;
 .
+quantitykind:PlanarForce
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:ATM ;
+  qudt:applicableUnit unit:ATM_T ;
+  qudt:applicableUnit unit:BAR ;
+  qudt:applicableUnit unit:BARAD ;
+  qudt:applicableUnit unit:BARYE ;
+  qudt:applicableUnit unit:CM_H2O ;
+  qudt:applicableUnit unit:CentiBAR ;
+  qudt:applicableUnit unit:CentiM_H2O ;
+  qudt:applicableUnit unit:CentiM_HG ;
+  qudt:applicableUnit unit:DYN-PER-CentiM2 ;
+  qudt:applicableUnit unit:DecaPA ;
+  qudt:applicableUnit unit:DeciBAR ;
+  qudt:applicableUnit unit:FT_H2O ;
+  qudt:applicableUnit unit:FT_HG ;
+  qudt:applicableUnit unit:GM_F-PER-CentiM2 ;
+  qudt:applicableUnit unit:GigaPA ;
+  qudt:applicableUnit unit:HectoBAR ;
+  qudt:applicableUnit unit:HectoPA ;
+  qudt:applicableUnit unit:IN_H2O ;
+  qudt:applicableUnit unit:IN_HG ;
+  qudt:applicableUnit unit:KIP_F-PER-IN2 ;
+  qudt:applicableUnit unit:KiloBAR ;
+  qudt:applicableUnit unit:KiloGM-PER-M-SEC2 ;
+  qudt:applicableUnit unit:KiloGM_F-PER-CentiM2 ;
+  qudt:applicableUnit unit:KiloGM_F-PER-M2 ;
+  qudt:applicableUnit unit:KiloGM_F-PER-MilliM2 ;
+  qudt:applicableUnit unit:KiloLB_F-PER-IN2 ;
+  qudt:applicableUnit unit:KiloPA ;
+  qudt:applicableUnit unit:KiloPA_A ;
+  qudt:applicableUnit unit:LB_F-PER-FT2 ;
+  qudt:applicableUnit unit:LB_F-PER-IN2 ;
+  qudt:applicableUnit unit:MegaBAR ;
+  qudt:applicableUnit unit:MegaPA ;
+  qudt:applicableUnit unit:MicroATM ;
+  qudt:applicableUnit unit:MicroBAR ;
+  qudt:applicableUnit unit:MicroPA ;
+  qudt:applicableUnit unit:MicroTORR ;
+  qudt:applicableUnit unit:MilliBAR ;
+  qudt:applicableUnit unit:MilliM_H2O ;
+  qudt:applicableUnit unit:MilliM_HG ;
+  qudt:applicableUnit unit:MilliM_HGA ;
+  qudt:applicableUnit unit:MilliPA ;
+  qudt:applicableUnit unit:MilliTORR ;
+  qudt:applicableUnit unit:N-PER-CentiM2 ;
+  qudt:applicableUnit unit:N-PER-M2 ;
+  qudt:applicableUnit unit:N-PER-MilliM2 ;
+  qudt:applicableUnit unit:PA ;
+  qudt:applicableUnit unit:PDL-PER-FT2 ;
+  qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PlanckPressure ;
+  qudt:applicableUnit unit:TORR ;
+  qudt:baseUnitDimensions "\\(M/L \\cdot T^2\\)"^^qudt:LatexString ;
+  qudt:baseUnitDimensions "\\(kg/m \\cdot s^2\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcmeasureresource/lexical/ifcplanarforcemeasure.htm"^^xsd:anyURI ;
+  qudt:plainTextDescription "Another name for Force Per Area, used by the Industry Foundation Classes (IFC) standard." ;
+  qudt:symbol "p" ;
+  qudt:url "http://en.wikipedia.org/wiki/Pressure"^^xsd:anyURI ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Flächenlast"@de ;
+  rdfs:label "Planar Force"@en ;
+  skos:broader quantitykind:ForcePerArea ;
+.
 quantitykind:PlanckFunction
   a qudt:QuantityKind ;
   dcterms:description "The \\(\\textit{Planck function}\\) is used to compute the radiance emitted from objects that radiate like a perfect \"Black Body\". The inverse of the \\(\\textit{Planck Function}\\) is used to find the \\(\\textit{Brightness Temperature}\\) of an object. The precise formula for the Planck Function depends on whether the radiance is determined on a \\(\\textit{per unit wavelength}\\) or a \\(\\textit{per unit frequency}\\). In the ISO System of Quantities, \\(\\textit{Planck Function}\\) is defined by the formula: \\(Y = -G/T\\), where \\(G\\) is Gibbs Energy and \\(T\\) is thermodynamic temperature."^^qudt:LatexString ;
@@ -12309,6 +13084,7 @@ quantitykind:PolarMomentOfInertia
 quantitykind:Polarizability
   a qudt:QuantityKind ;
   dcterms:description "\"Polarizability\" is the relative tendency of a charge distribution, like the electron cloud of an atom or molecule, to be distorted from its normal shape by an external electric field, which may be caused by the presence of a nearby ion or dipole. The electronic polarizability \\(\\alpha\\) is defined as the ratio of the induced dipole moment of an atom to the electric field that produces this dipole moment. Polarizability is often a scalar valued quantity, however in the general case it is tensor-valued."^^qudt:LatexString ;
+  qudt:applicableUnit unit:ANGSTROM3 ;
   qudt:applicableUnit unit:C-M2-PER-V ;
   qudt:applicableUnit unit:C2-M-PER-J ;
   qudt:baseUnitDimensions "\\(A^2 \\cdot s^4/kg\\)"^^qudt:LatexString ;
@@ -12336,6 +13112,16 @@ quantitykind:PolarizationField
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Polarization Field"@en ;
   skos:broader quantitykind:ElectricChargePerArea ;
+.
+quantitykind:Population
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:NUM ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:informativeReference "https://en.wikipedia.org/wiki/Population"^^xsd:anyURI ;
+  qudt:plainTextDescription "Population typically refers to the number of people in a single area, whether it be a city or town, region, country, continent, or the world, but can also represent the number of any kind of entity." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Population"@en ;
+  skos:broader quantitykind:Dimensionless ;
 .
 quantitykind:PositionVector
   a qudt:QuantityKind ;
@@ -12385,6 +13171,27 @@ quantitykind:PositionVector
   rdfs:label "Position Vector"@en ;
   skos:broader quantitykind:Length ;
 .
+quantitykind:PositiveDimensionlessRatio
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:DeciB_M ;
+  qudt:applicableUnit unit:FRACTION ;
+  qudt:applicableUnit unit:GR ;
+  qudt:applicableUnit unit:NUM ;
+  qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
+  qudt:applicableUnit unit:PPB ;
+  qudt:applicableUnit unit:PPM ;
+  qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
+  qudt:applicableUnit unit:PPTR ;
+  qudt:applicableUnit unit:UNITLESS ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC2/HTML/link/ifcpositiveratiomeasure.htm"^^xsd:anyURI ;
+  qudt:plainTextDescription "A \"Positive Dimensionless Ratio\" is a dimensionless ratio that is greater than zero" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Positive Dimensionless Ratio"@en ;
+  skos:broader quantitykind:DimensionlessRatio ;
+.
 quantitykind:PotentialEnergy
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:AttoJ ;
@@ -12403,6 +13210,8 @@ quantitykind:PotentialEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -12437,7 +13246,8 @@ quantitykind:PotentialEnergy
   qudt:latexDefinition "\\(V = -\\int F \\cdot dr\\), where \\(F\\) is a conservative force and \\(R\\) is a position vector."^^qudt:LatexString ;
   qudt:normativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31889"^^xsd:anyURI ;
   qudt:plainTextDescription "Energy possessed by a body by virtue of its position in a gravity field in contrast with kinetic energy, that possessed by virtue of its motion." ;
-  qudt:symbol "PE or U" ;
+  qudt:symbol "PE" ;
+  qudt:symbol "U" ;
   qudt:url "http://en.wikipedia.org/wiki/Potential_energy"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Potential Energy"@en ;
@@ -12456,14 +13266,13 @@ quantitykind:Power
   qudt:applicableUnit unit:FT-LB_F-PER-SEC ;
   qudt:applicableUnit unit:GigaW ;
   qudt:applicableUnit unit:HP ;
-  qudt:applicableUnit unit:HP-PER-M ;
-  qudt:applicableUnit unit:HP-PER-V ;
   qudt:applicableUnit unit:HP_Boiler ;
   qudt:applicableUnit unit:HP_Brake ;
   qudt:applicableUnit unit:HP_Electric ;
   qudt:applicableUnit unit:HP_Metric ;
   qudt:applicableUnit unit:J-PER-HR ;
   qudt:applicableUnit unit:J-PER-SEC ;
+  qudt:applicableUnit unit:KiloBTU_IT-PER-HR ;
   qudt:applicableUnit unit:KiloCAL-PER-MIN ;
   qudt:applicableUnit unit:KiloCAL-PER-SEC ;
   qudt:applicableUnit unit:KiloW ;
@@ -12513,9 +13322,9 @@ quantitykind:PowerArea
 quantitykind:PowerAreaPerSolidAngle
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:W-M2-PER-SR ;
-  qudt:applicableUnit unit:W-PER-M2-SR ;
   qudt:baseUnitDimensions "\\(L^4 \\cdot M/T^3 \\cdot U\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(kg \\cdot m^4/s^3\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L4I0M1H0T-3D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Power Area per Solid Angle"@en ;
 .
@@ -12680,11 +13489,21 @@ quantitykind:PressureCoefficient
   qudt:applicableUnit unit:MegaPA-PER-K ;
   qudt:applicableUnit unit:PA-PER-K ;
   qudt:expression "\\(pres-coef\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L-1I0M1H-1T-2D0 ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31890"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\beta = \\left (\\frac{\\partial p}{\\partial T} \\right )_V\\), where \\(p\\) is \\(pressure\\),  \\(T\\) is thermodynamic temperature and \\(V\\) is volume."^^qudt:LatexString ;
   qudt:latexSymbol "\\(\\beta\\)"^^qudt:LatexString ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Pressure Coefficient"@en ;
+.
+quantitykind:PressureLossPerLength
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:KiloGM-PER-M2-SEC2 ;
+  qudt:hasDimensionVector qkdv:A0E0L-2I0M1H0T-2D0 ;
+  qudt:informativeReference "https://en.wikipedia.org/wiki/Friction_loss"^^xsd:anyURI ;
+  qudt:plaintextDescription "\"Pressure Loss per Length\" refers to the power lost in overcoming the friction between two moving surfaces. Also referred to as \"Friction Loss\"." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Pressure Loss per Length"@en ;
 .
 quantitykind:PressurePercentage
   a qudt:QuantityKind ;
@@ -12772,21 +13591,13 @@ quantitykind:PropellantMass
 .
 quantitykind:PropellantMeanBulkTemperature
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:DEG_C-PER-HR ;
-  qudt:applicableUnit unit:DEG_C-PER-MIN ;
-  qudt:applicableUnit unit:DEG_C-PER-SEC ;
-  qudt:applicableUnit unit:DEG_C-PER-YR ;
-  qudt:applicableUnit unit:DEG_F-PER-HR ;
-  qudt:applicableUnit unit:DEG_F-PER-MIN ;
-  qudt:applicableUnit unit:DEG_F-PER-SEC ;
-  qudt:applicableUnit unit:DEG_F-PER-SEC2 ;
-  qudt:applicableUnit unit:DEG_R-PER-HR ;
-  qudt:applicableUnit unit:DEG_R-PER-MIN ;
-  qudt:applicableUnit unit:DEG_R-PER-SEC ;
-  qudt:applicableUnit unit:K-PER-HR ;
-  qudt:applicableUnit unit:K-PER-MIN ;
-  qudt:applicableUnit unit:K-PER-SEC ;
-  qudt:hasDimensionVector qkdv:A0E0L0I0M0H1T-1D0 ;
+  qudt:applicableUnit unit:DEG_C ;
+  qudt:applicableUnit unit:DEG_F ;
+  qudt:applicableUnit unit:DEG_R ;
+  qudt:applicableUnit unit:K ;
+  qudt:applicableUnit unit:MilliDEG_C ;
+  qudt:applicableUnit unit:PlanckTemperature ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H1T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Propellant Mean Bulk Temperature"@en ;
   skos:altLabel "PMBT" ;
@@ -12794,24 +13605,16 @@ quantitykind:PropellantMeanBulkTemperature
 .
 quantitykind:PropellantTemperature
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:DEG_C-PER-HR ;
-  qudt:applicableUnit unit:DEG_C-PER-MIN ;
-  qudt:applicableUnit unit:DEG_C-PER-SEC ;
-  qudt:applicableUnit unit:DEG_C-PER-YR ;
-  qudt:applicableUnit unit:DEG_F-PER-HR ;
-  qudt:applicableUnit unit:DEG_F-PER-MIN ;
-  qudt:applicableUnit unit:DEG_F-PER-SEC ;
-  qudt:applicableUnit unit:DEG_F-PER-SEC2 ;
-  qudt:applicableUnit unit:DEG_R-PER-HR ;
-  qudt:applicableUnit unit:DEG_R-PER-MIN ;
-  qudt:applicableUnit unit:DEG_R-PER-SEC ;
-  qudt:applicableUnit unit:K-PER-HR ;
-  qudt:applicableUnit unit:K-PER-MIN ;
-  qudt:applicableUnit unit:K-PER-SEC ;
-  qudt:hasDimensionVector qkdv:A0E0L0I0M0H1T-1D0 ;
+  qudt:applicableUnit unit:DEG_C ;
+  qudt:applicableUnit unit:DEG_F ;
+  qudt:applicableUnit unit:DEG_R ;
+  qudt:applicableUnit unit:K ;
+  qudt:applicableUnit unit:MilliDEG_C ;
+  qudt:applicableUnit unit:PlanckTemperature ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H1T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Propellant Temperature"@en ;
-  skos:broader quantitykind:TemperaturePerTime ;
+  skos:broader quantitykind:Temperature ;
 .
 quantitykind:QualityFactor
   a qudt:QuantityKind ;
@@ -12905,8 +13708,16 @@ quantitykind:RESERVE-MASS
 .
 quantitykind:RF-Power
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:B ;
-  qudt:applicableUnit unit:DeciB ;
+  qudt:applicableUnit unit:KiloV-PER-M ;
+  qudt:applicableUnit unit:MegaV-PER-M ;
+  qudt:applicableUnit unit:MicroV-PER-M ;
+  qudt:applicableUnit unit:MilliV-PER-M ;
+  qudt:applicableUnit unit:V-PER-CentiM ;
+  qudt:applicableUnit unit:V-PER-IN ;
+  qudt:applicableUnit unit:V-PER-M ;
+  qudt:applicableUnit unit:V-PER-MilliM ;
+  qudt:applicableUnit unit:V_Ab-PER-CentiM ;
+  qudt:applicableUnit unit:V_Stat-PER-CentiM ;
   qudt:hasDimensionVector qkdv:A0E-1L1I0M1H0T-3D0 ;
   qudt:informativeReference "https://www.analog.com/en/technical-articles/measurement-control-rf-power-parti.html"^^xsd:anyURI ;
   qudt:plainTextDescription "Radio-Frequency Power. Power level of electromagnetic waves alternating at the frequency of radio waves (up to 10^10 Hz)." ;
@@ -12967,6 +13778,7 @@ quantitykind:Radiance
   qudt:applicableUnit unit:W-PER-M2-SR ;
   qudt:baseUnitDimensions "\\(M/T^3 \\cdot U\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(kg/s^3\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M1H0T-3D0 ;
   qudt:latexDefinition "\\(L = \\frac{dI}{dA}\\frac{1}{cos\\alpha}\\), where \\(dI\\) is the radiant intensity emitted from an element of the surface area \\(dA\\), and angle \\(\\alpha\\) is the angle between the normal to the surface and the given direction."^^qudt:LatexString ;
   qudt:plainTextDescription "\"Radiance\" is a radiometric measure that describes the amount of light that passes through or is emitted from a particular area, and falls within a given solid angle in a specified direction." ;
   qudt:symbol "L" ;
@@ -13031,6 +13843,8 @@ quantitykind:RadiantEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -13160,14 +13974,13 @@ quantitykind:RadiantFlux
   qudt:applicableUnit unit:FT-LB_F-PER-SEC ;
   qudt:applicableUnit unit:GigaW ;
   qudt:applicableUnit unit:HP ;
-  qudt:applicableUnit unit:HP-PER-M ;
-  qudt:applicableUnit unit:HP-PER-V ;
   qudt:applicableUnit unit:HP_Boiler ;
   qudt:applicableUnit unit:HP_Brake ;
   qudt:applicableUnit unit:HP_Electric ;
   qudt:applicableUnit unit:HP_Metric ;
   qudt:applicableUnit unit:J-PER-HR ;
   qudt:applicableUnit unit:J-PER-SEC ;
+  qudt:applicableUnit unit:KiloBTU_IT-PER-HR ;
   qudt:applicableUnit unit:KiloCAL-PER-MIN ;
   qudt:applicableUnit unit:KiloCAL-PER-SEC ;
   qudt:applicableUnit unit:KiloW ;
@@ -13373,6 +14186,8 @@ quantitykind:ReactionEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -13513,9 +14328,11 @@ quantitykind:RelativeAtomicMass
   qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
   qudt:applicableUnit unit:PPB ;
   qudt:applicableUnit unit:PPM ;
   qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
   qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
@@ -13569,59 +14386,30 @@ quantitykind:RelativeMassConcentrationOfVapour
 .
 quantitykind:RelativeMassDefect
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:AMU ;
-  qudt:applicableUnit unit:CARAT ;
-  qudt:applicableUnit unit:CWT_LONG ;
-  qudt:applicableUnit unit:CWT_SHORT ;
-  qudt:applicableUnit unit:CentiGM ;
-  qudt:applicableUnit unit:DRAM_UK ;
-  qudt:applicableUnit unit:DRAM_US ;
-  qudt:applicableUnit unit:DWT ;
-  qudt:applicableUnit unit:DecaGM ;
-  qudt:applicableUnit unit:DeciGM ;
-  qudt:applicableUnit unit:DeciTONNE ;
-  qudt:applicableUnit unit:DeciTON_Metric ;
-  qudt:applicableUnit unit:EarthMass ;
-  qudt:applicableUnit unit:GM ;
-  qudt:applicableUnit unit:GRAIN ;
-  qudt:applicableUnit unit:HectoGM ;
-  qudt:applicableUnit unit:Hundredweight_UK ;
-  qudt:applicableUnit unit:Hundredweight_US ;
-  qudt:applicableUnit unit:KiloGM ;
-  qudt:applicableUnit unit:KiloTON_Metric ;
-  qudt:applicableUnit unit:LB ;
-  qudt:applicableUnit unit:LB_T ;
-  qudt:applicableUnit unit:LunarMass ;
-  qudt:applicableUnit unit:MegaGM ;
-  qudt:applicableUnit unit:MicroGM ;
-  qudt:applicableUnit unit:MilliGM ;
-  qudt:applicableUnit unit:NanoGM ;
-  qudt:applicableUnit unit:OZ ;
-  qudt:applicableUnit unit:OZ_TROY ;
-  qudt:applicableUnit unit:Pennyweight ;
-  qudt:applicableUnit unit:PicoGM ;
-  qudt:applicableUnit unit:PlanckMass ;
-  qudt:applicableUnit unit:Quarter_UK ;
-  qudt:applicableUnit unit:SLUG ;
-  qudt:applicableUnit unit:SolarMass ;
-  qudt:applicableUnit unit:Stone_UK ;
-  qudt:applicableUnit unit:TONNE ;
-  qudt:applicableUnit unit:TON_Assay ;
-  qudt:applicableUnit unit:TON_LONG ;
-  qudt:applicableUnit unit:TON_Metric ;
-  qudt:applicableUnit unit:TON_SHORT ;
-  qudt:applicableUnit unit:TON_UK ;
-  qudt:applicableUnit unit:TON_US ;
-  qudt:applicableUnit unit:U ;
-  qudt:hasDimensionVector qkdv:A0E0L0I0M1H0T0D0 ;
+  qudt:applicableUnit unit:DeciB_M ;
+  qudt:applicableUnit unit:FRACTION ;
+  qudt:applicableUnit unit:GR ;
+  qudt:applicableUnit unit:NUM ;
+  qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
+  qudt:applicableUnit unit:PPB ;
+  qudt:applicableUnit unit:PPM ;
+  qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
+  qudt:applicableUnit unit:PPTR ;
+  qudt:applicableUnit unit:UNITLESS ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Binding_energy"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
   qudt:latexDefinition "\\(B_r = \\frac{B}{m_u}\\), where \\(B\\) is the mass defect and \\(m_u\\) is the unified atomic mass constant."^^qudt:LatexString ;
   qudt:plainTextDescription "The \"Relative Mass Defect\" is the mass defect between the monoisotopic mass of an element and the mass of its A + 1 or its A + 2 isotopic cluster." ;
+  qudt:qkdvDenominator qkdv:A0E0L0I0M1H0T0D0 ;
+  qudt:qkdvNumerator qkdv:A0E0L0I0M1H0T0D0 ;
   qudt:symbol "B_r" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Relative Mass Defect"@en ;
-  skos:broader quantitykind:MassDefect ;
+  rdfs:seeAlso quantitykind:MassDefect ;
+  skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:RelativeMassDensity
   a qudt:QuantityKind ;
@@ -13665,9 +14453,11 @@ quantitykind:RelativeMolecularMass
   qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
   qudt:applicableUnit unit:PPB ;
   qudt:applicableUnit unit:PPM ;
   qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
   qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
@@ -13691,24 +14481,11 @@ quantitykind:RelativePartialPressure
   skos:altLabel "RH" ;
   skos:broader quantitykind:PressureRatio ;
 .
-quantitykind:RelativePermittivity
-  a qudt:QuantityKind ;
-  qudt:applicableUnit unit:UNITLESS ;
-  qudt:dbpediaMatch "http://dbpedia.org/resource/Permittivity"^^xsd:anyURI ;
-  qudt:expression "\\(rel-permittivity\\)"^^qudt:LatexString ;
-  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
-  qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
-  qudt:latexDefinition "\\(\\epsilon_r = \\epsilon / \\epsilon_0\\), where \\(\\epsilon\\) is permittivity and \\(\\epsilon_0\\) is the electric constant."^^qudt:LatexString ;
-  qudt:latexSymbol "\\(\\epsilon_r\\)"^^qudt:LatexString ;
-  qudt:plainTextDescription "\"Relative Permittivity\" is the ration of permittivity to the permittivity of a vacuum." ;
-  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "Relative Permittivity"@en ;
-  rdfs:seeAlso quantitykind:Permittivity ;
-.
 quantitykind:RelativePressureCoefficient
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:PER-K ;
   qudt:expression "\\(rel-pres-coef\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H-1T0D0 ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31890"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\alpha_p = \\frac{1}{p}\\left (\\frac{\\partial p}{\\partial T} \\right )_V\\), where \\(p\\) is \\(pressure\\),  \\(T\\) is thermodynamic temperature and \\(V\\) is volume."^^qudt:LatexString ;
   qudt:latexSymbol "\\(\\alpha_p\\)"^^qudt:LatexString ;
@@ -13739,6 +14516,7 @@ quantitykind:Reluctance
 quantitykind:ResidualResistivity
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:OHM-M ;
+  qudt:hasDimensionVector qkdv:A0E-2L3I0M1H0T-3D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Residual-resistance_ratio"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31897"^^xsd:anyURI ;
   qudt:latexSymbol "\\(\\rho_R\\)"^^qudt:LatexString ;
@@ -13787,6 +14565,7 @@ quantitykind:Resistivity
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:OHM-M ;
   qudt:applicableUnit unit:OHM-M2-PER-M ;
+  qudt:hasDimensionVector qkdv:A0E-2L3I0M1H0T-3D0 ;
   qudt:informativeReference "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-12-04"^^xsd:anyURI ;
   qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\rho = \\frac{1}{\\sigma}\\), if it exists, where \\(\\sigma\\) is conductivity."^^qudt:LatexString ;
@@ -13814,6 +14593,8 @@ quantitykind:ResonanceEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -13872,6 +14653,7 @@ quantitykind:RespiratoryRate
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:BREATH-PER-MIN ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Respiratory_rate"^^xsd:anyURI ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Respiratory_rate"^^xsd:anyURI ;
   qudt:plainTextDescription "Respiratory rate (Vf, Rf or RR) is also known by respiration rate, pulmonary ventilation rate, ventilation rate, or breathing frequency is the number of breaths taken within a set amount of time, typically 60 seconds. A normal respiratory rate is termed eupnea, an increased respiratory rate is termed tachypnea and a lower than normal respiratory rate is termed bradypnea." ;
   qudt:symbol "Vf, Rf or RR" ;
@@ -13896,6 +14678,8 @@ quantitykind:RestEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -14018,6 +14802,7 @@ quantitykind:ReynoldsNumber
 quantitykind:RichardsonConstant
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:A-PER-M2-K2 ;
+  qudt:hasDimensionVector qkdv:A0E1L-2I0M0H-2T0D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Thermionic_emission"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31897"^^xsd:anyURI ;
   qudt:latexDefinition "The thermionic emission current, \\(J\\), for a metal is \\(J = AT^2\\exp{(-\\frac{\\Phi}{kT})}\\), where \\(T\\) is thermodynamic temperature, \\(k\\) is the Boltzmann constant, and \\(\\Phi\\) is a work function."^^qudt:LatexString ;
@@ -14032,6 +14817,27 @@ quantitykind:RocketAtmosphericTransverseForce
   qudt:symbol "T" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Rocket Atmospheric Transverse Force"@en ;
+.
+quantitykind:RotationalMass
+  a qudt:QuantityKind ;
+  qudt:baseUnitDimensions "\\(L^2*M\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T0D0 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC2/HTML/link/ifcrotationalmassmeasure.htm"^^xsd:anyURI ;
+  qudt:plaintextDescription "\"Rotational Mass\" denotes the inertia of a body with respect to angular acceleration. It is usually measured in kg*m^2." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Rotational Mass"@en ;
+  skos:exactMatch quantitykind:MomentOfInertia ;
+.
+quantitykind:RotationalStiffness
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:N-M-PER-RAD ;
+  qudt:baseUnitDimensions "\\(L^2 \\cdot M/T^2\\)"^^qudt:LatexString ;
+  qudt:baseUnitDimensions "\\(kg \\cdot m^2/s^2\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
+  qudt:plainTextDescription "Rotational Stiffness is the extent to which an object resists deformation in response to an applied torque." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Rotational Stiffness"@en ;
+  skos:broader quantitykind:TorquePerAngle ;
 .
 quantitykind:ScalarMagneticPotential
   a qudt:QuantityKind ;
@@ -14073,7 +14879,7 @@ quantitykind:SecondMomentOfArea
 quantitykind:SecondOrderReactionRateConstant
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:CentiM3-PER-MOL-SEC ;
-  qudt:hasDimensionVector <http://qudt.org/vocab/dimension/A-1E0L3I0M0H0T-1D0> ;
+  qudt:hasDimensionVector qkdv:A-1E0L3I0M0H0T-1D0 ;
   qudt:plainTextDescription "A quantity kind that is a proportionality constant that quantifies the relationship between the molar concentrations of the reactants and the rate of a second order chemical reaction." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Reaction Rate Constant"@en ;
@@ -14104,11 +14910,21 @@ quantitykind:SecondStageMassRatio
   qudt:applicableUnit unit:NanoGM-PER-KiloGM ;
   qudt:applicableUnit unit:PicoGM-PER-GM ;
   qudt:applicableUnit unit:PicoGM-PER-KiloGM ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:plainTextDescription "Mass ratio for the second stage of a multistage launcher." ;
   qudt:symbol "R_2" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Second Stage Mass Ratio"@en ;
   skos:broader quantitykind:MassRatio ;
+.
+quantitykind:SectionAreaIntegral
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:M5 ;
+  qudt:hasDimensionVector qkdv:A0E0L5I0M0H0T0D0 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifcsectionalareaintegralmeasure.htm"^^xsd:anyURI ;
+  qudt:plaintextDescription "The sectional area integral measure is typically used in torsional analysis. It is usually measured in M⁵." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Section Area Integral"@en ;
 .
 quantitykind:SectionModulus
   a qudt:QuantityKind ;
@@ -14125,6 +14941,7 @@ quantitykind:SectionModulus
 quantitykind:SeebeckCoefficient
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:V-PER-K ;
+  qudt:hasDimensionVector qkdv:A0E-1L2I0M1H-1T-3D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Thermopower"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31897"^^xsd:anyURI ;
   qudt:latexDefinition "\\(S_{ab} = \\frac{dE_{ab}}{dT}\\), where \\(E_{ab}\\) is the thermosource voltage between substances a and b, \\(T\\) is the thermodynamic temperature of the hot junction."^^qudt:LatexString ;
@@ -14136,6 +14953,7 @@ quantitykind:SeebeckCoefficient
 quantitykind:SerumOrPlasmaLevel
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:IU-PER-L ;
+  qudt:hasDimensionVector qkdv:A1E0L-3I0M0H0T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Serum or Plasma Level"@en ;
   skos:broader quantitykind:AmountOfSubstancePerUnitVolume ;
@@ -14146,10 +14964,21 @@ quantitykind:ShannonDiversityIndex
   qudt:applicableUnit unit:BIT ;
   qudt:applicableUnit unit:BYTE ;
   qudt:applicableUnit unit:ERLANG ;
+  qudt:applicableUnit unit:ExaBYTE ;
+  qudt:applicableUnit unit:ExbiBYTE ;
+  qudt:applicableUnit unit:GibiBYTE ;
+  qudt:applicableUnit unit:GigaBYTE ;
   qudt:applicableUnit unit:HART ;
+  qudt:applicableUnit unit:KibiBYTE ;
+  qudt:applicableUnit unit:KiloBYTE ;
+  qudt:applicableUnit unit:MebiBYTE ;
+  qudt:applicableUnit unit:MegaBYTE ;
   qudt:applicableUnit unit:NAT ;
-  qudt:applicableUnit unit:NAT-PER-SEC ;
+  qudt:applicableUnit unit:PebiBYTE ;
+  qudt:applicableUnit unit:PetaBYTE ;
   qudt:applicableUnit unit:SHANNON ;
+  qudt:applicableUnit unit:TebiBYTE ;
+  qudt:applicableUnit unit:TeraBYTE ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:plainTextDescription "Information entropy applied to a collection of indiviual organisms [of selected species] in a sample area. A measure of biodiversity." ;
   rdfs:isDefinedBy <https://data.agrimetrics.co.uk/ontologies/qudt-extension> ;
@@ -14175,9 +15004,11 @@ quantitykind:ShearStrain
   qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
   qudt:applicableUnit unit:PPB ;
   qudt:applicableUnit unit:PPM ;
   qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
   qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
@@ -14272,8 +15103,16 @@ quantitykind:SignalDetectionThreshold
 .
 quantitykind:SignalStrength
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:B ;
-  qudt:applicableUnit unit:DeciB ;
+  qudt:applicableUnit unit:KiloV-PER-M ;
+  qudt:applicableUnit unit:MegaV-PER-M ;
+  qudt:applicableUnit unit:MicroV-PER-M ;
+  qudt:applicableUnit unit:MilliV-PER-M ;
+  qudt:applicableUnit unit:V-PER-CentiM ;
+  qudt:applicableUnit unit:V-PER-IN ;
+  qudt:applicableUnit unit:V-PER-M ;
+  qudt:applicableUnit unit:V-PER-MilliM ;
+  qudt:applicableUnit unit:V_Ab-PER-CentiM ;
+  qudt:applicableUnit unit:V_Stat-PER-CentiM ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Signal_strength"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E-1L1I0M1H0T-3D0 ;
   qudt:plainTextDescription "In telecommunications, particularly in radio, signal strength refers to the magnitude of the electric field at a reference point that is a significant distance from the transmitting antenna. It may also be referred to as received signal level or field strength. Typically, it is expressed in voltage per length or signal power received by a reference antenna. High-powered transmissions, such as those used in broadcasting, are expressed in dB-millivolts per metre (dBmV/m)." ;
@@ -14295,6 +15134,7 @@ quantitykind:SingleStageLauncherMassRatio
   qudt:applicableUnit unit:NanoGM-PER-KiloGM ;
   qudt:applicableUnit unit:PicoGM-PER-GM ;
   qudt:applicableUnit unit:PicoGM-PER-KiloGM ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:symbol "R_o" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Single Stage Launcher Mass Ratio"@en ;
@@ -14496,6 +15336,7 @@ quantitykind:SoundEnergyDensity
 quantitykind:SoundExposure
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:PA2-SEC ;
+  qudt:hasDimensionVector qkdv:A0E0L-2I0M2H0T-3D0 ;
   qudt:informativeReference "http://www.acoustic-glossary.co.uk/definitions-s.htm"^^xsd:anyURI ;
   qudt:latexDefinition "\\(E = \\int_{t1}^{t2}p^2dt\\), where \\(t1\\) and \\(t2\\) are the starting and ending times for the integral and \\(p\\) is the sound pressure."^^qudt:LatexString ;
   qudt:plainTextDescription "Sound Exposure is the energy of the A-weighted sound calculated over the measurement time(s). For a given period of time, an increase of 10 dB(A) in sound pressure level corresponds to a tenfold increase in E." ;
@@ -14506,9 +15347,10 @@ quantitykind:SoundExposure
 .
 quantitykind:SoundExposureLevel
   a qudt:QuantityKind ;
-  dcterms:description "Sound Exposure Level abbreviated as \\(SEL\\) and \\(LAE\\), is the total noise energy produced from a single noise event."^^qudt:LatexString ;
+  dcterms:description "Sound Exposure Level abbreviated as \\(SEL\\) and \\(LAE\\), is the total noise energy produced from a single noise event, expressed as a logarithmic ratio from a reference level."^^qudt:LatexString ;
+  qudt:applicableUnit unit:B ;
   qudt:applicableUnit unit:DeciB ;
-  qudt:hasDimensionVector qkdv:A0E-1L1I0M1H0T-3D0 ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "http://www.diracdelta.co.uk/science/source/s/o/sound%20exposure%20level/source.html"^^xsd:anyURI ;
   qudt:latexDefinition "\\(L_E = 10 \\log_{10} \\frac{E}{E_0} dB\\), where \\(E\\) is sound power and the reference value is \\(E_0 = 400 \\mu Pa^2 s\\)."^^qudt:LatexString ;
   qudt:symbol "L" ;
@@ -14642,14 +15484,13 @@ quantitykind:SoundPower
   qudt:applicableUnit unit:FT-LB_F-PER-SEC ;
   qudt:applicableUnit unit:GigaW ;
   qudt:applicableUnit unit:HP ;
-  qudt:applicableUnit unit:HP-PER-M ;
-  qudt:applicableUnit unit:HP-PER-V ;
   qudt:applicableUnit unit:HP_Boiler ;
   qudt:applicableUnit unit:HP_Brake ;
   qudt:applicableUnit unit:HP_Electric ;
   qudt:applicableUnit unit:HP_Metric ;
   qudt:applicableUnit unit:J-PER-HR ;
   qudt:applicableUnit unit:J-PER-SEC ;
+  qudt:applicableUnit unit:KiloBTU_IT-PER-HR ;
   qudt:applicableUnit unit:KiloCAL-PER-MIN ;
   qudt:applicableUnit unit:KiloCAL-PER-SEC ;
   qudt:applicableUnit unit:KiloW ;
@@ -14683,9 +15524,10 @@ quantitykind:SoundPower
 .
 quantitykind:SoundPowerLevel
   a qudt:QuantityKind ;
-  dcterms:description "Sound Power Level abbreviated as \\(SWL\\) expresses sound power more practically as a relation to the threshold of hearing - 10-12 W - in a logarithmic scale."^^qudt:LatexString ;
+  dcterms:description "Sound Power Level abbreviated as \\(SWL\\) expresses sound power more practically as a relation to the threshold of hearing - 1 picoW - in a logarithmic scale."^^qudt:LatexString ;
+  qudt:applicableUnit unit:B ;
   qudt:applicableUnit unit:DeciB ;
-  qudt:hasDimensionVector qkdv:A0E-1L1I0M1H0T-3D0 ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Sound_power#Sound_power_level"^^xsd:anyURI ;
   qudt:latexDefinition "\\(L_W = 10 \\log_{10} \\frac{P}{P_0} dB\\), where \\(P\\) is sound power and the reference value is \\(P_0 =1pW\\)."^^qudt:LatexString ;
   qudt:symbol "L" ;
@@ -14758,9 +15600,10 @@ quantitykind:SoundPressure
 .
 quantitykind:SoundPressureLevel
   a qudt:QuantityKind ;
-  dcterms:description "Sound pressure level (\\(SPL\\)) or sound level  is a logarithmic measure of the effective sound pressure of a sound relative to a reference value. It is measured in decibels (dB) above a standard reference level."^^qudt:LatexString ;
+  dcterms:description "Sound pressure level (\\(SPL\\)) or sound level is a logarithmic measure of the effective sound pressure of a sound relative to a reference value. It is measured in decibels (dB) above a standard reference level."^^qudt:LatexString ;
+  qudt:applicableUnit unit:B ;
   qudt:applicableUnit unit:DeciB ;
-  qudt:hasDimensionVector qkdv:A0E-1L1I0M1H0T-3D0 ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Sound_pressure#Sound_pressure_level"^^xsd:anyURI ;
   qudt:latexDefinition "\\(L_P = 10 \\log_{10} \\frac{p^2}{p_0^2} dB\\), where \\(p\\) is sound pressure and the reference value in airborne acoustics is \\(p_0 = 20 \\mu Pa\\)."^^qudt:LatexString ;
   qudt:symbol "L" ;
@@ -14770,8 +15613,9 @@ quantitykind:SoundPressureLevel
 .
 quantitykind:SoundReductionIndex
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:B ;
   qudt:applicableUnit unit:DeciB ;
-  qudt:hasDimensionVector qkdv:A0E-1L1I0M1H0T-3D0 ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Sound_reduction_index"^^xsd:anyURI ;
   qudt:latexDefinition "\\(R = 10 \\log (\\frac{1}{\\tau}) dB\\), where \\(\\tau\\) is the transmission factor."^^qudt:LatexString ;
   qudt:plainTextDescription "The Sound Reduction Index is used to measure the level of sound insulation provided by a structure such as a wall, window, door, or ventilator." ;
@@ -14860,6 +15704,7 @@ quantitykind:SpecificAcousticImpedance
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:N-SEC-PER-M3 ;
   qudt:applicableUnit unit:RAYL ;
+  qudt:hasDimensionVector qkdv:A0E0L-2I0M1H0T-1D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Specific Acoustic Impedance"@en ;
 .
@@ -15119,6 +15964,7 @@ quantitykind:SpecificImpulseByMass
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
   qudt:applicableUnit unit:FT-PER-SEC ;
@@ -15210,6 +16056,7 @@ quantitykind:SpecificInternalEnergy
 quantitykind:SpecificOpticalRotatoryPower
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:RAD-M2-PER-KiloGM ;
+  qudt:hasDimensionVector qkdv:A0E0L2I0M-1H0T0D0 ;
   qudt:informativeReference "http://goldbook.iupac.org/O04313.html"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31894"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\alpha_m = \\alpha \\frac{A}{m}\\), where \\(\\alpha\\) is the angle of optical rotation, and \\(m\\) is the mass of the optically active component in the path of a linearly polarized light beam of cross sectional area \\(A\\)."^^qudt:LatexString ;
@@ -15248,6 +16095,7 @@ quantitykind:SpectralAngularCrossSection
   a qudt:QuantityKind ;
   dcterms:description "\"Spectral Angular Cross-section\" is the cross-section for ejecting or scattering a particle into an elementary cone with energy \\(E\\) in an energy interval, divided by the solid angle \\(d\\Omega\\) of that cone and the range \\(dE\\) of that interval."^^qudt:LatexString ;
   qudt:applicableUnit unit:M2-PER-SR-J ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M-1H0T2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Cross_section_(physics)"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\sigma = \\int \\int \\sigma_{\\Omega,E} d\\Omega dE\\)"^^qudt:LatexString ;
@@ -15261,6 +16109,7 @@ quantitykind:SpectralCrossSection
   a qudt:QuantityKind ;
   dcterms:description "\"Spectral Cross-section\" is the cross-section for a process in which the energy of the ejected or scattered particle is in an interval of energy, divided by the range \\(dE\\) of this interval."^^qudt:LatexString ;
   qudt:applicableUnit unit:M2-PER-J ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M-1H0T2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Cross_section_(physics)"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\sigma = \\int \\sigma_E dE\\)"^^qudt:LatexString ;
@@ -15625,12 +16474,15 @@ quantitykind:Strain
   qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
   qudt:applicableUnit unit:PPB ;
   qudt:applicableUnit unit:PPM ;
   qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
   qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Strain"^^xsd:anyURI ;
+  qudt:exactMatch quantitykind:LinearStrain ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:latexSymbol "\\(\\epsilon\\)"^^qudt:LatexString ;
   qudt:plainTextDescription "In any branch of science dealing with materials and their behaviour, strain is the geometrical expression of deformation caused by the action of stress on a physical body. Strain is calculated by first assuming a change between two body states: the beginning state and the final state. Then the difference in placement of two points in this body in those two states expresses the numerical value of strain. Strain therefore expresses itself as a change in size and/or shape. [Wikipedia]" ;
@@ -15717,6 +16569,21 @@ quantitykind:Stress
   rdfs:label "Stress"@en ;
   skos:broader quantitykind:ForcePerArea ;
 .
+quantitykind:StressOpticCoefficient
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:NanoM-PER-CentiM-PSI ;
+  qudt:applicableUnit unit:NanoM-PER-MilliM-MegaPA ;
+  qudt:applicableUnit unit:PER-PA ;
+  qudt:applicableUnit unit:PER-PSI ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M-1H0T2D0 ;
+  qudt:informativeReference "https://en.wikipedia.org/w/index.php?title=Photoelasticity&oldid=1109858854#Experimental_principles"^^xsd:anyURI ;
+  qudt:latexDefinition "When a ray of light passes through a photoelastic material, its electromagnetic wave components are resolved along the two principal stress directions and each component experiences a different refractive index due to the birefringence. The difference in the refractive indices leads to a relative phase retardation between the two components. Assuming a thin specimen made of isotropic materials, where two-dimensional photoelasticity is applicable, the magnitude of the relative retardation is given by the stress-optic law \\(\\Delta ={\\frac {2\\pi t}{\\lambda }}C(\\sigma _{1}-\\sigma _{2})\\), where \\(\\Delta\\) is the induced retardation, \\(C\\) is the stress-optic coefficient, \\(t\\) is the specimen thickness, \\(\\lambda\\) is the vacuum wavelength, and \\(\\sigma_1\\) and \\(\\sigma_2\\) are the first and second principal stresses, respectively."^^qudt:LatexString ;
+  qudt:plainTextDescription "When a ray of light passes through a photoelastic material, its electromagnetic wave components are resolved along the two principal stress directions and each component experiences a different refractive index due to the birefringence. The difference in the refractive indices leads to a relative phase retardation between the two components. Assuming a thin specimen made of isotropic materials, where two-dimensional photoelasticity is applicable, the magnitude of the relative retardation is given by the stress-optic law Δ=((2πt)/λ)C(σ₁-σ₂), where Δ is the induced retardation, C is the stress-optic coefficient, t is the specimen thickness, λ is the vacuum wavelength, and σ₁ and σ₂ are the first and second principal stresses, respectively." ;
+  qudt:qkdvDenominator qkdv:A0E0L0I0M1H0T-2D0 ;
+  qudt:qkdvNumerator qkdv:A0E0L1I0M0H0T0D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Stress-Optic Coefficient"@en ;
+.
 quantitykind:StructuralEfficiency
   a qudt:QuantityKind ;
   qudt:latexSymbol "\\(\\gamma\\)"^^qudt:LatexString ;
@@ -15765,6 +16632,8 @@ quantitykind:SuperconductorEnergyGap
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -15804,6 +16673,7 @@ quantitykind:SuperconductorEnergyGap
 quantitykind:SurfaceActivityDensity
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:BQ-PER-M2 ;
+  qudt:hasDimensionVector qkdv:A0E0L-2I0M0H0T-1D0 ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
   qudt:latexDefinition "\\(a_s = \\frac{A}{S}\\), where \\(S\\) is the total area of the surface of a sample and \\(A\\) is its activity."^^qudt:LatexString ;
   qudt:plainTextDescription "The \"Surface Activity Density\" is undefined." ;
@@ -16015,6 +16885,15 @@ quantitykind:TemperatureAmountOfSubstance
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Temperature Amount of Substance"@en ;
 .
+quantitykind:TemperatureGradient
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:K-PER-M ;
+  qudt:hasDimensionVector qkdv:A0E0L-1I0M0H1T0D0 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifctemperaturegradientmeasure.htm"^^xsd:anyURI ;
+  qudt:plaintextDescription "The temperature gradient measures the difference of a temperature per length, as for instance used in an external wall or its layers. It is usually measured in K/m." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Temperature Gradient"@en ;
+.
 quantitykind:TemperaturePerMagneticFluxDensity
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:K-PER-T ;
@@ -16046,6 +16925,31 @@ quantitykind:TemperaturePerTime
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Temperature per Time"@en ;
 .
+quantitykind:TemperatureRateOfChange
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:DEG_C-PER-HR ;
+  qudt:applicableUnit unit:DEG_C-PER-MIN ;
+  qudt:applicableUnit unit:DEG_C-PER-SEC ;
+  qudt:applicableUnit unit:DEG_C-PER-YR ;
+  qudt:applicableUnit unit:DEG_F-PER-HR ;
+  qudt:applicableUnit unit:DEG_F-PER-MIN ;
+  qudt:applicableUnit unit:DEG_F-PER-SEC ;
+  qudt:applicableUnit unit:DEG_F-PER-SEC2 ;
+  qudt:applicableUnit unit:DEG_R-PER-HR ;
+  qudt:applicableUnit unit:DEG_R-PER-MIN ;
+  qudt:applicableUnit unit:DEG_R-PER-SEC ;
+  qudt:applicableUnit unit:K-PER-HR ;
+  qudt:applicableUnit unit:K-PER-MIN ;
+  qudt:applicableUnit unit:K-PER-SEC ;
+  qudt:baseUnitDimensions "\\(K/s\\)"^^qudt:LatexString ;
+  qudt:baseUnitDimensions "\\(\\Theta/T\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H1T-1D0 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC2/HTML/link/ifctemperaturerateofchangemeasure.htm"^^xsd:anyURI ;
+  qudt:plaintextDescription "The \"Temperature Rate of Change\" measures the difference of a temperature per time (positive: rise, negative: fall), as for instance used with heat sensors. It is for example measured in K/s." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Temperature Rate of Change"@en ;
+  skos:broader quantitykind:TemperaturePerTime ;
+.
 quantitykind:TemperatureRatio
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DEG_C-PER-K ;
@@ -16070,13 +16974,44 @@ quantitykind:TemporalSummationFunction
 .
 quantitykind:Tension
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:ERG ;
-  qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:KIP_F ;
+  qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloN ;
+  qudt:applicableUnit unit:KiloP ;
+  qudt:applicableUnit unit:KiloPOND ;
+  qudt:applicableUnit unit:LB_F ;
+  qudt:applicableUnit unit:MegaLB_F ;
+  qudt:applicableUnit unit:MegaN ;
+  qudt:applicableUnit unit:MicroN ;
+  qudt:applicableUnit unit:MilliN ;
+  qudt:applicableUnit unit:N ;
+  qudt:applicableUnit unit:OZ_F ;
+  qudt:applicableUnit unit:PDL ;
+  qudt:applicableUnit unit:PlanckForce ;
+  qudt:applicableUnit unit:TON_F_US ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Tension"^^xsd:anyURI ;
-  qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M1H0T-2D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Tension"@en ;
   skos:broader quantitykind:ForceMagnitude ;
+.
+quantitykind:ThermalAdmittance
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:BTU_IT-PER-FT2-HR-DEG_F ;
+  qudt:applicableUnit unit:BTU_IT-PER-FT2-SEC-DEG_F ;
+  qudt:applicableUnit unit:BTU_IT-PER-HR-FT2-DEG_R ;
+  qudt:applicableUnit unit:BTU_IT-PER-SEC-FT2-DEG_R ;
+  qudt:applicableUnit unit:CAL_IT-PER-SEC-CentiM2-K ;
+  qudt:applicableUnit unit:CAL_TH-PER-SEC-CentiM2-K ;
+  qudt:applicableUnit unit:W-PER-M2-K ;
+  qudt:baseUnitDimensions "\\(M/\\Theta \\cdot T^3\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M1H-1T-3D0 ;
+  qudt:informativeReference "https://en.wikipedia.org/wiki/Thermal_conductivity"^^xsd:anyURI ;
+  qudt:plaintextDescription "The heat transfer coefficient is also known as thermal admittance in the sense that the material may be seen as admitting heat to flow." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Thermal Admittance"@en ;
+  skos:broader quantitykind:CoefficientOfHeatTransfer ;
 .
 quantitykind:ThermalConductance
   a qudt:QuantityKind ;
@@ -16184,9 +17119,11 @@ quantitykind:ThermalEfficiency
   qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
   qudt:applicableUnit unit:PPB ;
   qudt:applicableUnit unit:PPM ;
   qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
   qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Thermal_efficiency"^^xsd:anyURI ;
@@ -16211,6 +17148,8 @@ quantitykind:ThermalEnergy
   qudt:applicableUnit unit:CAL_TH ;
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloCAL_IT ;
   qudt:applicableUnit unit:KiloCAL_Mean ;
@@ -16233,6 +17172,16 @@ quantitykind:ThermalEnergyLength
   qudt:hasDimensionVector qkdv:A0E0L3I0M1H0T-2D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Thermal Energy Length"@en ;
+.
+quantitykind:ThermalExpansionCoefficient
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:PER-K ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H-1T0D0 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC2/HTML/link/ifcthermalexpansioncoefficientmeasure.htm"^^xsd:anyURI ;
+  qudt:plaintextDescription "The \"Thermal Expansion Coefficient\" is a measure of the thermal expansion coefficient of a material, which expresses its elongation (as a ratio) per temperature difference. It is usually measured in 1/K. A positive elongation per (positive) rise of temperature is expressed by a positive value." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Thermal Expansion Coefficient"@en ;
+  skos:broader quantitykind:ExpansionRatio ;
 .
 quantitykind:ThermalInsulance
   a qudt:QuantityKind ;
@@ -16284,6 +17233,23 @@ quantitykind:ThermalResistivity
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Thermal Resistivity"@en ;
 .
+quantitykind:ThermalTransmittance
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:BTU_IT-PER-FT2-HR-DEG_F ;
+  qudt:applicableUnit unit:BTU_IT-PER-FT2-SEC-DEG_F ;
+  qudt:applicableUnit unit:BTU_IT-PER-HR-FT2-DEG_R ;
+  qudt:applicableUnit unit:BTU_IT-PER-SEC-FT2-DEG_R ;
+  qudt:applicableUnit unit:CAL_IT-PER-SEC-CentiM2-K ;
+  qudt:applicableUnit unit:CAL_TH-PER-SEC-CentiM2-K ;
+  qudt:applicableUnit unit:W-PER-M2-K ;
+  qudt:baseUnitDimensions "\\(M/\\Theta \\cdot T^3\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M1H-1T-3D0 ;
+  qudt:informativeReference "https://en.wikipedia.org/wiki/Thermal_transmittance"^^xsd:anyURI ;
+  qudt:plaintextDescription "Thermal transmittance is the rate of transfer of heat through matter. The thermal transmittance of a material (such as insulation or concrete) or an assembly (such as a wall or window) is expressed as a U-value. The concept of thermal transmittance is closely related to that of thermal resistance. The thermal resistance of a structure is the reciprocal of its thermal transmittance." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Thermal Transmittance"@en ;
+  skos:broader quantitykind:CoefficientOfHeatTransfer ;
+.
 quantitykind:ThermalUtilizationFactor
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:UNITLESS ;
@@ -16329,6 +17295,8 @@ quantitykind:ThermodynamicEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -16356,12 +17324,15 @@ quantitykind:ThermodynamicEnergy
   qudt:applicableUnit unit:V-A_Reactive-HR ;
   qudt:applicableUnit unit:W-HR ;
   qudt:applicableUnit unit:W-SEC ;
+  qudt:exactMatch quantitykind:EnergyInternal ;
+  qudt:exactMatch quantitykind:InternalEnergy ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31890"^^xsd:anyURI ;
   qudt:latexDefinition "For a closed thermodynamic system, \\(\\Delta U = Q + W\\), where \\(Q\\) is amount of heat transferred to the system and \\(W\\) is work done on the system provided that no chemical reactions occur."^^qudt:LatexString ;
   qudt:symbol "U" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Thermodynamic Energy"@en ;
+  owl:sameAs quantitykind:EnergyInternal ;
   owl:sameAs quantitykind:InternalEnergy ;
   skos:broader quantitykind:Energy ;
 .
@@ -16445,6 +17416,7 @@ quantitykind:Thickness
 quantitykind:ThomsonCoefficient
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:V-PER-K ;
+  qudt:hasDimensionVector qkdv:A0E-1L2I0M1H-1T-3D0 ;
   qudt:informativeReference "http://www.daviddarling.info/encyclopedia/T/Thomson_effect.html"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31897"^^xsd:anyURI ;
   qudt:latexSymbol "\\(\\mu\\)"^^qudt:LatexString ;
@@ -16610,6 +17582,7 @@ quantitykind:TimeSquared
 quantitykind:TimeTemperature
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DEG_C-WK ;
+  qudt:applicableUnit unit:K-DAY ;
   qudt:applicableUnit unit:K-SEC ;
   qudt:baseUnitDimensions "\\(K \\cdot s\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(\\Theta \\cdot T\\)"^^qudt:LatexString ;
@@ -16645,6 +17618,7 @@ t stands for time."""^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(L^2 \\cdot M/T^2\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(kg \\cdot m^2/s^2\\)"^^qudt:LatexString ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Torque"^^xsd:anyURI ;
+  qudt:exactMatch quantitykind:MomentOfForce ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Torque"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31889"^^xsd:anyURI ;
@@ -16708,6 +17682,7 @@ quantitykind:TotalAngularMomentumQuantumNumber
 quantitykind:TotalAtomicStoppingPower
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:J-M2 ;
+  qudt:hasDimensionVector qkdv:A0E0L4I0M1H0T-2D0 ;
   qudt:informativeReference "http://www.answers.com/topic/atomic-stopping-power"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
   qudt:latexDefinition "\\(S_a = \\frac{S}{n}\\), where \\(S\\) is the total linear stopping power and \\(n\\) is the number density of the atoms in the substance."^^qudt:LatexString ;
@@ -16789,6 +17764,7 @@ quantitykind:TotalLinearStoppingPower
   qudt:applicableUnit unit:EV-PER-ANGSTROM ;
   qudt:applicableUnit unit:EV-PER-M ;
   qudt:applicableUnit unit:J-PER-M ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M1H0T-2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Stopping_power_(particle_radiation)"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
   qudt:latexDefinition "\\(S = -\\frac{dE}{dx}\\), where \\(-dE\\) is the energy decrement in the \\(x-direction\\) along an elementary path with the length \\(dx\\)."^^qudt:LatexString ;
@@ -16800,6 +17776,7 @@ quantitykind:TotalLinearStoppingPower
 quantitykind:TotalMassStoppingPower
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:J-M2-PER-KiloGM ;
+  qudt:hasDimensionVector qkdv:A0E0L4I0M0H0T-2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Stopping_power_(particle_radiation)"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
   qudt:latexDefinition "\\(S_m = \\frac{S}{\\rho}\\), where \\(S\\) is the total linear stopping power and \\(\\rho\\) is the mass density of the sample."^^qudt:LatexString ;
@@ -16965,6 +17942,18 @@ quantitykind:VacuumThrust
   rdfs:label "Vacuum Thrust"@en ;
   skos:broader quantitykind:Thrust ;
 .
+quantitykind:VaporPermeability
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:KiloGM-PER-M2-PA-SEC ;
+  qudt:applicableUnit unit:NanoGM-PER-M2-PA-SEC ;
+  qudt:applicableUnit unit:PERM_Metric ;
+  qudt:applicableUnit unit:PERM_US ;
+  qudt:hasDimensionVector qkdv:A0E0L-1I0M0H0T1D0 ;
+  qudt:informativeReference "https://www.designingbuildings.co.uk/wiki/Vapour_Permeability"^^xsd:anyURI ;
+  qudt:plaintextDescription "Vapour permeability, or \"Breathability\" in a building refers to the ease with which water vapour passes through building elements. Building elements where vapour permeability is poorly designed can result in condensation, leading to unhealthy living environments and degradation of fabric." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Vapor Permeability"@en ;
+.
 quantitykind:VaporPressure
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:ATM ;
@@ -17029,6 +18018,7 @@ quantitykind:VehicleVelocity
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
   qudt:applicableUnit unit:FT-PER-SEC ;
@@ -17086,12 +18076,14 @@ quantitykind:Velocity
   qudt:applicableUnit unit:MilliM-PER-SEC ;
   qudt:applicableUnit unit:MilliM-PER-YR ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Velocity"^^xsd:anyURI ;
+  qudt:exactMatch quantitykind:LinearVelocity ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T-1D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Velocity"^^xsd:anyURI ;
   qudt:plainTextDescription "In kinematics, velocity is the speed of an object and a specification of its direction of motion. Speed describes only how fast an object is moving, whereas velocity gives both how fast and in what direction the object is moving. " ;
   qudt:symbol "v" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Velocity"@en ;
+  owl:sameAs quantitykind:LinearVelocity ;
 .
 quantitykind:VentilationRatePerFloorArea
   a qudt:QuantityKind ;
@@ -17108,6 +18100,7 @@ quantitykind:VerticalVelocity
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
   qudt:applicableUnit unit:FT-PER-SEC ;
@@ -17150,7 +18143,7 @@ quantitykind:VideoFrameRate
 quantitykind:Viscosity
   a qudt:QuantityKind ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Viscosity"^^xsd:anyURI ;
-  qudt:plainTextDescription "Viscosity is a measure of the resistance of a fluid which is being deformed by either shear stress or extensional stress. In general terms it is the resistance of a liquid to flow, or its \"thickness\". Viscosity describes a fluid's internal resistance to flow and may be thought of as a measure of fluid friction. [Wikipedia]" ;
+  qudt:plainTextDescription "Viscosity is a measure of the resistance of a fluid which is being deformed by either shear stress or extensional stress. In general terms it is the resistance of a liquid to flow, or its \"thickness\". Viscosity describes a fluid's internal resistance to flow and may be thought of as a measure of fluid friction. [Wikipedia]. Please note that the general concept of Viscosity is dimensionally ambiguous and thus is not associated with a DimensionVector. Narrower definitions including DynamicViscosity and KinematicViscosity are preferable." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Viscosity"@en ;
 .
@@ -17172,6 +18165,8 @@ quantitykind:VisibleRadiantEnergy
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -17233,6 +18228,9 @@ For an irrotational electric field, the voltage is independent of the path betwe
   qudt:applicableUnit unit:V ;
   qudt:applicableUnit unit:V_Ab ;
   qudt:applicableUnit unit:V_Stat ;
+  qudt:exactMatch quantitykind:ElectricPotential ;
+  qudt:exactMatch quantitykind:ElectricPotentialDifference ;
+  qudt:exactMatch quantitykind:EnergyPerElectricCharge ;
   qudt:hasDimensionVector qkdv:A0E-1L2I0M1H0T-3D0 ;
   qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
   qudt:latexDefinition "\\(U_{ab} = V_a - V_b\\), where \\(V_a\\) and \\(V_b\\) are electric potentials at points \\(a\\) and \\(b\\), respectively."^^qudt:LatexString ;
@@ -17240,6 +18238,8 @@ For an irrotational electric field, the voltage is independent of the path betwe
   qudt:symbol "U" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Voltage"@en ;
+  owl:sameAs quantitykind:ElectricPotential ;
+  owl:sameAs quantitykind:ElectricPotentialDifference ;
   owl:sameAs quantitykind:EnergyPerElectricCharge ;
   skos:broader quantitykind:EnergyPerElectricCharge ;
 .
@@ -17412,6 +18412,7 @@ quantitykind:VolumeFlowRate
   qudt:applicableUnit unit:YD3-PER-MIN ;
   qudt:applicableUnit unit:YD3-PER-SEC ;
   qudt:baseUnitDimensions "\\(m^{3} sec^{-1}\\)"^^qudt:LatexString ;
+  qudt:exactMatch quantitykind:VolumePerUnitTime ;
   qudt:hasDimensionVector qkdv:A0E0L3I0M0H0T-1D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Volumetric_flow_rate"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31889"^^xsd:anyURI ;
@@ -17447,6 +18448,15 @@ quantitykind:VolumeFraction
   rdfs:label "Volume Fraction"@en ;
   skos:broader quantitykind:DimensionlessRatio ;
 .
+quantitykind:VolumePerArea
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:M3-PER-HA ;
+  qudt:baseUnitDimensions "\\(L^3/L^2\\)"^^qudt:LatexString ;
+  qudt:baseUnitDimensions "\\(m^3/m^2\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Volume per Unit Area"@en ;
+.
 quantitykind:VolumePerUnitTime
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:FT3-PER-MIN ;
@@ -17459,6 +18469,7 @@ quantitykind:VolumePerUnitTime
   qudt:applicableUnit unit:YD3-PER-MIN ;
   qudt:baseUnitDimensions "\\(L^3/T\\)"^^qudt:LatexString ;
   qudt:baseUnitDimensions "\\(m^3/s\\)"^^qudt:LatexString ;
+  qudt:exactMatch quantitykind:VolumeFlowRate ;
   qudt:hasDimensionVector qkdv:A0E0L3I0M0H0T-1D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Volume per Unit Time"@en ;
@@ -17472,9 +18483,11 @@ quantitykind:VolumeStrain
   qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
   qudt:applicableUnit unit:PPB ;
   qudt:applicableUnit unit:PPM ;
   qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
   qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
@@ -17541,6 +18554,7 @@ quantitykind:VolumicElectromagneticEnergy
   a qudt:QuantityKind ;
   dcterms:description "\\(\\textit{Volumic Electromagnetic Energy}\\), also known as the \\(\\textit{Electromagnetic Energy Density}\\), is the energy associated with an electromagnetic field, per unit volume of the field."^^qudt:LatexString ;
   qudt:applicableUnit unit:J-PER-M3 ;
+  qudt:exactMatch quantitykind:ElectromagneticEnergyDensity ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
   qudt:informativeReference "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-11-64"^^xsd:anyURI ;
   qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
@@ -17581,6 +18595,25 @@ quantitykind:WarmReceptorThreshold
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Warm Receptor Threshold"@en ;
 .
+quantitykind:WarpingConstant
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:M6 ;
+  qudt:hasDimensionVector qkdv:A0E0L6I0M0H0T0D0 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifcwarpingconstantmeasure.htm"^^xsd:anyURI ;
+  qudt:plaintextDescription "The \"Warping Constant\" is a measure for the warping constant or warping resistance of a cross section under torsional loading. It is usually measured in m⁶." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Warping Constant"@en ;
+.
+quantitykind:WarpingMoment
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:KiloN-M2 ;
+  qudt:applicableUnit unit:N-M2 ;
+  qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
+  qudt:informativeReference "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifcwarpingmomentmeasure.htm"^^xsd:anyURI ;
+  qudt:plaintextDescription "The warping moment measure is a measure for the warping moment, which occurs in warping torsional analysis. It is usually measured in kNm²." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Warping Moment"@en ;
+.
 quantitykind:WaterHorsepower
   a qudt:QuantityKind ;
   dcterms:description "No pump can convert all of its mechanical power into water power. Mechanical power is lost in the pumping process due to friction losses and other physical losses. It is because of these losses that the horsepower going into the pump has to be greater than the water horsepower leaving the pump. The efficiency of any given pump is defined as the ratio of the water horsepower out of the pump compared to the mechanical horsepower into the pump."^^qudt:LatexString ;
@@ -17594,14 +18627,13 @@ quantitykind:WaterHorsepower
   qudt:applicableUnit unit:FT-LB_F-PER-SEC ;
   qudt:applicableUnit unit:GigaW ;
   qudt:applicableUnit unit:HP ;
-  qudt:applicableUnit unit:HP-PER-M ;
-  qudt:applicableUnit unit:HP-PER-V ;
   qudt:applicableUnit unit:HP_Boiler ;
   qudt:applicableUnit unit:HP_Brake ;
   qudt:applicableUnit unit:HP_Electric ;
   qudt:applicableUnit unit:HP_Metric ;
   qudt:applicableUnit unit:J-PER-HR ;
   qudt:applicableUnit unit:J-PER-SEC ;
+  qudt:applicableUnit unit:KiloBTU_IT-PER-HR ;
   qudt:applicableUnit unit:KiloCAL-PER-MIN ;
   qudt:applicableUnit unit:KiloCAL-PER-SEC ;
   qudt:applicableUnit unit:KiloW ;
@@ -17682,6 +18714,7 @@ quantitykind:Wavenumber
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DPI ;
   qudt:applicableUnit unit:KY ;
+  qudt:applicableUnit unit:MESH ;
   qudt:applicableUnit unit:PER-ANGSTROM ;
   qudt:applicableUnit unit:PER-CentiM ;
   qudt:applicableUnit unit:PER-KiloM ;
@@ -17811,6 +18844,7 @@ quantitykind:Weight
   qudt:applicableUnit unit:PlanckForce ;
   qudt:applicableUnit unit:TON_F_US ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Weight"^^xsd:anyURI ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M1H0T-2D0 ;
   qudt:plainTextDescription "The force with which a body is attracted toward an astronomical body.  Or, the product of the mass of a body and the acceleration acting on a body.  In a dynamic situation, the weight can be a multiple of that under resting conditions. Weight also varies on other planets in accordance with their gravity." ;
   qudt:symbol "bold letter W" ;
   qudt:url "http://en.wikipedia.org/wiki/Weight"^^xsd:anyURI ;
@@ -17881,6 +18915,8 @@ quantitykind:Work
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -17938,6 +18974,8 @@ quantitykind:WorkFunction
   qudt:applicableUnit unit:GigaJ ;
   qudt:applicableUnit unit:GigaW-HR ;
   qudt:applicableUnit unit:J ;
+  qudt:applicableUnit unit:KiloBTU_IT ;
+  qudt:applicableUnit unit:KiloBTU_TH ;
   qudt:applicableUnit unit:KiloCAL ;
   qudt:applicableUnit unit:KiloEV ;
   qudt:applicableUnit unit:KiloJ ;
@@ -17987,22 +19025,22 @@ vaem:GMD_QUDT-QUANTITY-KINDS-ALL
   dcterms:creator "Ralph Hodgson" ;
   dcterms:creator "Steve Ray" ;
   dcterms:description "Provides the set of all quantity kinds."^^rdf:HTML ;
-  dcterms:modified "2022-04-20T11:42:10.493-04:00"^^xsd:dateTime ;
+  dcterms:modified "2022-12-19T15:30:07.697-05:00"^^xsd:dateTime ;
   dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
   dcterms:subject "QUANTITY-KINDS-ALL" ;
   vaem:applicableDiscipline "All disciplines" ;
   vaem:applicableDomain "Science, Medicine and Engineering" ;
   vaem:dateCreated "2019-08-01T21:26:38"^^xsd:dateTime ;
-  vaem:graphTitle "QUDT Quantity Kinds Version 2.1.18" ;
+  vaem:graphTitle "QUDT Quantity Kinds Version 2.1.23" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
   vaem:intent "TBD" ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/quantitykind> ;
-  vaem:latestPublishedVersion "http://www.qudt.org/doc/2022/04/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
-  vaem:logo "http://www.linkedmodel.org/lib/lm/images/logos/qudt_logo-300x110.png" ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2022/12/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
+  vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png" ;
   vaem:namespace "http://qudt.org/vocab/quantitykind/" ;
   vaem:namespacePrefix "quantitykind" ;
   vaem:owner "qudt.org" ;
-  vaem:previousPublishedVersion "http://www.qudt.org/doc/2022/02/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2022/11/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:specificity 1 ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/quantitykind" ;
@@ -18028,5 +19066,5 @@ vaem:GMD_QUDT-QUANTITY-KINDS-ALL
   vaem:withAttributionTo voag:QUDT-Attribution ;
   vaem:withAttributionTo <http://voag.linkedmodel.org/voag/QUDT-Attribution> ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "QUDT Quantity Kinds Vocabulary Version 2.1.18" ;
+  rdfs:label "QUDT Quantity Kinds Vocabulary Version 2.1.23" ;
 .
